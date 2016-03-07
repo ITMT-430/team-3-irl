@@ -69,4 +69,6 @@ Vagrant.configure(2) do |config|
 	 sudo apt-get update
 	 sudo apt-get install cordova-cli -y
    SHELL
+
+  config.vm.provision :shell, path: "bootstrap.sh"
 end
