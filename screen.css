@@ -5,3 +5,8 @@
   color: white;
   padding: 1em;
 }
+
+h1 {
+    color: blue;
+    text-align: center;
+}
