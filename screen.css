@@ -1,6 +1,7 @@
 #appwrapper {
   max-width: 40em;
   margin: 1em;
-  background-color: ivory;
+  background-color: black;
+  color: white;
   padding: 1em;
 }
