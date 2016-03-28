@@ -4,8 +4,9 @@
   <head>
     <meta charset="UTF-8">
     <title>Random Login Form</title>
-   <link rel="stylesheet" type="text/css" href="login.css">
-    
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <script src="https://use.typekit.net/kjz8pbx.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
   </head>
 
   <body>
