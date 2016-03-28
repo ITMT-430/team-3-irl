@@ -14,7 +14,7 @@
     <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div>IIT<span>iRL</span></div>
+			<div><span>iRL</span></div>
 		</div>
 		<br>
 		<div class="login">
