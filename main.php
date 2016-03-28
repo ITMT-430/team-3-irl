@@ -56,7 +56,7 @@ $mysqli->close();
 <?php
 //Update database when button is pushed
 	if (isset($_POST['submitbutton'])){
-		$availabile = $_POST['available'];
+		$available = $_POST['available'];
 		echo $available;
 	} 
 ?>
