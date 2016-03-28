@@ -3,7 +3,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Random Login Form</title>
+    <title>iRL Login</title>
     <link rel="stylesheet" type="text/css" href="login.css">
     <script src="https://use.typekit.net/kjz8pbx.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -20,7 +20,7 @@
 		<div class="login">
 				<input type="text" placeholder="username" name="user"><br>
 				<input type="password" placeholder="password" name="password"><br>
-				<input type="button" value="Login">
+				<a href="main.php"><input type="button" value="Login"></a>
 		</div>    
     
     
