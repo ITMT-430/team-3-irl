@@ -19,6 +19,7 @@
 				<input type="text" placeholder="username" name="user"><br>
 				<input type="password" placeholder="password" name="password"><br>
 				<input type="button" value="Login">
+				<input type=button onClick="parent.location='main.php'" value='click here'>
 		</div>    
     
     
