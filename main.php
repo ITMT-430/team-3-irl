@@ -10,11 +10,12 @@
 
 <div id="appwrapper">
 		<form action="main.php" method="post">
-			Available<input id="availability" type="radio" name="availablility" value="available">
-			Invisible<input id="availability" type="radio" name="availablility" value="invisible">
-			<input type="submit" value="submit">
+			Available<input id="availability" type="radio" name="available" value="1">
+			Invisible<input id="availability" type="radio" name="available" value="0" checked="checked">
+			<input type="submit" value="submit" name="submitbutton">
 		</form>
 <h1>People available:</h1>
+
 <?php 
 //include passwords stored out of web root
 include '../passwords.php';  
@@ -45,13 +46,22 @@ if ($result = $mysqli->query("SELECT * FROM test WHERE available=1")) {
 
 //Determine who is logged in and store that in a variable?
 
-//Update database when button is pushed
-
 
 
 /* close connection */
 $mysqli->close();
 ?>
+
+
+<?php
+//Update database when button is pushed
+	if (isset($_POST['submitbutton'])){
+		$availabile = $_POST['available];
+		echo $available;
+	} 
+?>
+
+
     
   </div>
   
