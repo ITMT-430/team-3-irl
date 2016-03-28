@@ -47,7 +47,9 @@ body{
 .header div{
 	float: left;
 	color: #fff;
-	font-family: 'Exo', sans-serif;
+  font-family: "almaq-rough",'Exo',sans-serif;
+  font-style: normal;
+  font-weight: 400;
 	font-size: 35px;
 	font-weight: 200;
 }
