@@ -9,16 +9,19 @@
 <body>
 
 <div id="appwrapper">
-    Available<input id="availability" type="radio" name="availablility" value="available">
-    Invisible<input id="availability" type="radio" name="availablility" value="invisible">
+		<form action="main.php" method="post">
+			Available<input id="availability" type="radio" name="availablility" value="available">
+			Invisible<input id="availability" type="radio" name="availablility" value="invisible">
+			<input type="submit" value="submit">
+		</form>
 <h1>People available:</h1>
 <?php 
-  
 //include passwords stored out of web root
 include '../passwords.php';  
-  
+
+//connect to database  
 $mysqli = new mysqli("localhost", $dbusername, $dbpassword, "irl");
-$sql = "SELECT * FROM user_table where available=1";
+$sql = "SELECT * FROM user_table WHERE available=1";
 $result = $mysqli->query($sql);
 
 if ($result->num_rows > 0) {
@@ -30,7 +33,8 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-if ($result = $mysqli->query("SELECT * FROM test")) {
+//calculate number of users that are available
+if ($result = $mysqli->query("SELECT * FROM test WHERE available=1")) {
 
     /* determine number of rows result set */
     $row_cnt = $result->num_rows;
@@ -38,6 +42,12 @@ if ($result = $mysqli->query("SELECT * FROM test")) {
     /* close result set */
     $result->close();
 }
+
+//Determine who is logged in and store that in a variable?
+
+//Update database when button is pushed
+
+
 
 /* close connection */
 $mysqli->close();
