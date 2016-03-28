@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Random Login Form</title>
-   <link rel="stylesheet" type="text/css" href="login.css">
+    <title>iRL Login</title>
+   <link rel="stylesheet" type="text/css" href="css/login.css">
     
   </head>
 
@@ -13,7 +12,7 @@
     <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div>IIT<span>iRL</span></div>
+			<div><span>iRL</span></div>
 		</div>
 		<br>
 		<div class="login">
