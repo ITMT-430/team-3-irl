@@ -46,6 +46,7 @@ include "connect.php";
 			";
 		
 			$result = $mysqli->query($sql);
+			echo $result;
 
 //**********************************************
 //
