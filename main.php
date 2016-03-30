@@ -42,7 +42,7 @@ include "connect.php";
 		$sql = "UPDATE user_table
 			SET available='$available',
 			SET message='$message'
-			WHERE id = $id;
+			WHERE id = '$id';
 			";
 		
 			$result = $mysqli->query($sql);
