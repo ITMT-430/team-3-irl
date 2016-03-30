@@ -17,9 +17,43 @@
 		</form>
 <h1>People available:</h1>
 
-<?php
-//Logged in user:
+<?php 
+//SET LOGGED ON USER
 $id=1;
+?>
+
+<?php
+//**********************************************
+//
+// UPDATE DATABASE WHEN BUTTON IS PUSHED
+//
+//**********************************************
+include "connect.php";
+
+	if (isset($_POST['submitbutton'])){
+		$available = $_POST['available'];
+		$message =  $_POST['message'];
+		$available = $_POST['available'];
+		
+		$sql = "UPDATE user_table
+			SET available='$available',
+			SET message='$message'
+			WHERE id = $id;
+			";
+		
+			$result = $mysqli->query($sql);
+		} 
+	$mysqli->close();
+?>
+
+
+<?php
+//**********************************************
+//
+// DISPLAY ROWS FROM DATABASE
+//
+//**********************************************
+
 include "connect.php";
 
 $sql = "SELECT * FROM user_table WHERE available=1";
@@ -28,7 +62,7 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<div class='user-entry'>id: " . $row["id"]. " - Name: " . $row["name"] . "</div>";
+        echo "<div class='user-entry'>id: " . $row["id"]. " - Name: " . $row["name"] . "Available: " . $row["available"] . "Message: " . $row["message"]. "</div>";
     }
 } else {
     echo "0 results";
@@ -43,37 +77,10 @@ if ($result = $mysqli->query("SELECT * FROM test WHERE available=1")) {
     /* close result set */
     $result->close();
 }
-//Determine who is logged in and store that in a variable?
-
-
 
 /* close connection */
 $mysqli->close();
 ?>
-
-
-<?php
-//Update database when button is pushed
-include "connect.php";
-
-$available = $_POST['available'];
-$message =  $_POST['message'];
-
-$sql = "UPDATE user_table
-SET available='$available',
-SET message='$message'
-WHERE id = $id;
-";
-
-$result = $mysqli->query($sql);
-	if (isset($_POST['submitbutton'])){
-		$available = $_POST['available'];
-		echo $available;
-	} 
-	$mysqli->close();
-?>
-
-
     
   </div>
   
