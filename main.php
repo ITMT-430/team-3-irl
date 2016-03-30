@@ -53,7 +53,7 @@ include "connect.php";
 // DISPLAY ROWS FROM DATABASE
 //
 //**********************************************
-
+if (isset($_POST['submitbutton'])){
 include "connect.php";
 
 $sql = "SELECT * FROM user_table WHERE available=1";
@@ -62,7 +62,7 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<div class='user-entry'>id: " . $row["id"]. " - Name: " . $row["name"] . "Available: " . $row["available"] . "Message: " . $row["message"]. "</div>";
+        echo "<div class='user-entry'>id: " . $row["id"]. " - Name: " . $row["name"] . "  Available: " . $row["available"] . "  Message: " . $row["message"]. "</div>";
     }
 } else {
     echo "0 results";
@@ -80,6 +80,7 @@ if ($result = $mysqli->query("SELECT * FROM test WHERE available=1")) {
 
 /* close connection */
 $mysqli->close();
+}
 ?>
     
   </div>
