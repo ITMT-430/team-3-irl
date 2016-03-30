@@ -18,7 +18,12 @@
 <h1>People available:</h1>
 
 <?php
+//Logged in user:
+$id=1;
 include "connect.php";
+
+$sql = "SELECT * FROM user_table WHERE available=1";
+$result = $mysqli->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -50,6 +55,17 @@ $mysqli->close();
 <?php
 //Update database when button is pushed
 include "connect.php";
+
+$available = $_POST['available'];
+$message =  $_POST['message'];
+
+$sql = "UPDATE user_table
+SET available='$available',
+SET message='$message'
+WHERE id = $id;
+";
+
+$result = $mysqli->query($sql);
 	if (isset($_POST['submitbutton'])){
 		$available = $_POST['available'];
 		echo $available;
