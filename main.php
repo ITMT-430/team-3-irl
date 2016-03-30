@@ -46,7 +46,7 @@ include "connect.php";
 			";
 		
 			$result = $mysqli->query($sql);
-
+			$result->close();
 //**********************************************
 //
 // DISPLAY ROWS FROM DATABASE
@@ -63,6 +63,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+ $result->close();
 
 //calculate number of users that are available
 if ($result = $mysqli->query("SELECT * FROM test WHERE available=1")) {
