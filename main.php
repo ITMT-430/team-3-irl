@@ -22,13 +22,18 @@
 $id=1;
 ?>
 
+
+
+
 <?php
+if (isset($_POST['submitbutton'])){
+include "connect.php";
+
 //**********************************************
 //
 // UPDATE DATABASE WHEN BUTTON IS PUSHED
 //
 //**********************************************
-include "connect.php";
 
 	if (isset($_POST['submitbutton'])){
 		$available = $_POST['available'];
@@ -43,19 +48,12 @@ include "connect.php";
 		
 			$result = $mysqli->query($sql);
 		} 
-	$mysqli->close();
-?>
 
-
-<?php
 //**********************************************
 //
 // DISPLAY ROWS FROM DATABASE
 //
 //**********************************************
-if (isset($_POST['submitbutton'])){
-include "connect.php";
-
 $sql = "SELECT * FROM user_table WHERE available=1";
 $result = $mysqli->query($sql);
 
