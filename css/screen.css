@@ -61,7 +61,7 @@ h1 {
 }
 
 #appwrapper {
-  margin: 0 auto;
+  margin: 1em auto;
   text-align: center;
   max-width: 30em;
   background-color: black;
@@ -77,3 +77,51 @@ h1 {
   padding: 1em;
   border: 3px outset gray;
 }
+
+/************************************FOR LOGIN PAGE*******************************/
+
+
+.citybackground{
+	background: url("../images/city-skyline.jpg") no-repeat center center fixed;
+	background-size: cover;
+}
+
+.header{
+	height: 100%;
+	vertical-align: center;
+	float: right;
+	color: white;
+	font-size: 5em;
+}
+
+.header p {
+	font-size: .5em;
+	color: red;
+}
+
+.login{
+	margin: 0 auto;
+	background-color: rgba(10,10,10, .5);
+	max-width: 40em;
+	padding: 1.5em;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+}
+
+.login input {
+	color: white;
+	background-color: transparent;
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
+
+.login input[type="button"]{
+	color: white;
+	width: 10em;
+	background-color: transparent;
+	padding: 1em;
+}
+
+
+
