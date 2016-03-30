@@ -13,17 +13,12 @@
 			Available<input id="availability" type="radio" name="available" value="1">
 			Invisible<input id="availability" type="radio" name="available" value="0" checked="checked">
 			<input type="submit" value="submit" name="submitbutton">
+			<input type="text" name="message" placeholder="Just chillin' . . .">
 		</form>
 <h1>People available:</h1>
 
-<?php 
-//include passwords stored out of web root
-include '../passwords.php';  
-
-//connect to database  
-$mysqli = new mysqli("localhost", $dbusername, $dbpassword, "irl");
-$sql = "SELECT * FROM user_table WHERE available=1";
-$result = $mysqli->query($sql);
+<?php
+include "connect.php";
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -43,7 +38,6 @@ if ($result = $mysqli->query("SELECT * FROM test WHERE available=1")) {
     /* close result set */
     $result->close();
 }
-
 //Determine who is logged in and store that in a variable?
 
 
@@ -55,10 +49,12 @@ $mysqli->close();
 
 <?php
 //Update database when button is pushed
+include "connect.php";
 	if (isset($_POST['submitbutton'])){
 		$available = $_POST['available'];
 		echo $available;
 	} 
+	$mysqli->close();
 ?>
 
 
