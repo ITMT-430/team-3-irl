@@ -35,7 +35,6 @@ include "connect.php";
 //
 //**********************************************
 
-	if (isset($_POST['submitbutton'])){
 		$available = $_POST['available'];
 		$message =  $_POST['message'];
 		$available = $_POST['available'];
@@ -47,7 +46,6 @@ include "connect.php";
 			";
 		
 			$result = $mysqli->query($sql);
-		} 
 
 //**********************************************
 //
