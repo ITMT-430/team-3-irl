@@ -43,14 +43,16 @@ include "connect.php";
 		echo $id;
 		
 		$sql = "UPDATE user_table SET
-			'available'='$available',
+			'available'=$available,
 			'message'='$message'
-			WHERE 'id' = '$id'
+			WHERE 'id' = $id
 			";
 		
 		$result = $mysqli->query($sql);
 		
-		echo $mysqli->error;
+		if ($mysqli->error) {
+			echo $mysqli->error;
+		}
 		
 		if($result){
 			echo "Databse change query worked!";
