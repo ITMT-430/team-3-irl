@@ -41,10 +41,10 @@ include "connect.php";
 		echo $available;
 		echo $message;
 		
-		$sql = "UPDATE user_table
-			SET available='$available',
-			SET message='$message'
-			WHERE id = '$id'
+		$sql = "UPDATE 'user_table'
+			SET 'available'='$available',
+			SET 'message'='$message'
+			WHERE 'id' = '$id'
 			";
 		
 		$result = $mysqli->query($sql);
@@ -54,7 +54,7 @@ include "connect.php";
 		}
 		else {
 			echo "FAILED TO CHANGE DATABASE ERROR:";
-			echo $mysqli->connect_errno;
+			echo $mysqli->connect_error();
 		}
 
 //**********************************************
