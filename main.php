@@ -50,6 +50,8 @@ include "connect.php";
 		
 		$result = $mysqli->query($sql);
 		
+		echo mysqli->error;
+		
 		if($result){
 			echo "Databse change query worked!";
 		}
