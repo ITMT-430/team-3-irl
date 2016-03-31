@@ -41,9 +41,9 @@ include "connect.php";
 		echo $available;
 		echo $message;
 		
-		$sql = "UPDATE 'user_table'
-			SET 'available'='$available',
-			SET 'message'='$message'
+		$sql = "UPDATE 'user_table' SET
+			'available'='$available',
+			'message'='$message'
 			WHERE 'id' = '$id'
 			";
 		
