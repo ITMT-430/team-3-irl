@@ -53,7 +53,8 @@ include "connect.php";
 			echo "Databse change query worked!";
 		}
 		else {
-			echo "FAILED TO CHANGE DATABASE";
+			echo "FAILED TO CHANGE DATABASE ERROR:";
+			echo $mysqli->connect_errno;
 		}
 
 //**********************************************
