@@ -38,8 +38,8 @@ include "connect.php";
 		$available = $_POST['available'];
 		$message =  $_POST['message'];
 		
-		echo $available 
-		echo $message
+		echo $available;
+		echo $message;
 		
 		$sql = "UPDATE user_table
 			SET available='$available',
