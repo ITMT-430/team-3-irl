@@ -42,10 +42,10 @@ include "connect.php";
 		echo $message;
 		echo $id;
 		
-		$sql = "UPDATE user_table SET
-			'available'=$available,
-			'message'='$message'
-			WHERE 'id' = $id
+		$sql = "UPDATE 'user_table' SET
+			'available' LIKE '$available',
+			'message' LIKE '$message'
+			WHERE'id' LIKE '$id'
 			";
 		
 		$result = $mysqli->query($sql);
