@@ -47,7 +47,7 @@ table {
 	border-spacing: 0;
 }
 
-/********************************************************************/
+/*********************************OUR CUSTOM CSS STYLES***********************************/
 body {
   font-family: sans-serif;
   background-color: black;
@@ -62,11 +62,14 @@ h1 {
 
 #appwrapper {
   margin: 1em auto;
+  background-color: rgba(10,10,10, .5);
   text-align: center;
-  max-width: 30em;
+  max-width: 40em;
   background-color: black;
   color: white;
-  padding: 1em;
+  padding: 1.5em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 .user-entry {
