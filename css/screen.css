@@ -61,11 +61,10 @@ h1 {
 }
 
 #appwrapper {
-  margin: 1em auto;
+  margin: 0em auto;
   background-color: rgba(10,10,10, .5);
   text-align: center;
   max-width: 40em;
-  background-color: black;
   color: white;
   padding: 1.5em;
   border-bottom-left-radius: 1em;
