@@ -38,10 +38,6 @@ include "connect.php";
 		$available = $_POST['available'];
 		$message =  $_POST['message'];
 		
-		echo $available;
-		echo $message;
-		echo $id;
-		
 		$sql = "UPDATE user_table SET
 			available='$available',
 			message='$message'
@@ -54,13 +50,6 @@ include "connect.php";
 			echo $mysqli->error;
 		}
 		
-		if($result){
-			echo "Databse change query worked!";
-		}
-		else {
-			echo "FAILED TO CHANGE DATABASE ERROR";
-
-		}
 
 //**********************************************
 //
