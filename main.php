@@ -47,7 +47,14 @@ include "connect.php";
 			WHERE id = '$id'
 			";
 		
-			$result = $mysqli->query($sql);
+		$result = $mysqli->query($sql);
+		
+		if($result){
+			echo "Databse change query worked!";
+		}
+		else {
+			echo "FAILED TO CHANGE DATABASE";
+		}
 
 //**********************************************
 //
