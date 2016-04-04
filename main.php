@@ -44,10 +44,8 @@ include "connect.php";
 			WHERE id='$id'
 			";
 		
-			$result = $mysqli->query($sql);
-			$result->close();
-			
 		$result = $mysqli->query($sql);
+		$result->close();
 		
 		if ($mysqli->error) {
 			echo $mysqli->error;
