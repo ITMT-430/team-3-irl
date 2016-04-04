@@ -46,7 +46,7 @@ include "connect.php";
 		
 			$result = $mysqli->query($sql);
 			$result->close();
-=======
+			
 		$result = $mysqli->query($sql);
 		
 		if ($mysqli->error) {
