@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/screen.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </head>
-<body>
+<body class="citybackground">
 
 <div id="appwrapper">
 		<form action="main.php" method="post">
@@ -23,8 +23,6 @@ $id=1;
 ?>
 
 
-
-
 <?php
 if (isset($_POST['submitbutton'])){
 include "connect.php";
@@ -35,18 +33,26 @@ include "connect.php";
 //
 //**********************************************
 
+//TO-DO: ESCAPE SINGLE QUOTE IN MESSAGE, THEY MESS UP THE DATABASE UPDATE
+
 		$available = $_POST['available'];
 		$message =  $_POST['message'];
-		$available = $_POST['available'];
 		
-		$sql = "UPDATE user_table
-			SET available='$available',
-			SET message='$message'
-			WHERE id = '$id'
+		$sql = "UPDATE user_table SET
+			available='$available',
+			message='$message'
+			WHERE id='$id'
 			";
 		
 			$result = $mysqli->query($sql);
 			$result->close();
+=======
+		$result = $mysqli->query($sql);
+		
+		if ($mysqli->error) {
+			echo $mysqli->error;
+		}
+		
 //**********************************************
 //
 // DISPLAY ROWS FROM DATABASE
