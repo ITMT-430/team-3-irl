@@ -120,9 +120,9 @@ h1 {
 
 .login input[type="button"]{
 	color: white;
-	width: 10em;
 	background-color: transparent;
-	padding: 1em;
+	padding: 1em 5em;
+	display: block;
 }
 
 
