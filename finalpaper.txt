@@ -23,16 +23,40 @@ Somewhat explained and demonstrated concept.  Provided visual authentication, wr
  
 3 points
 Inadequately explained and demonstrated concept.  Did not provided all necessary visual authentication, written documentation, or proper citation from textbook.  Some components were missing and or not clear.
- 
+
+IRL is an application to bring people together in the same physical space as opposed to the current digital tools that have a tendency to keep people at their screens and digitally communicate. 
+
+The use case would be as follow. You're alone on a Friday night with nothing to do. You want to instantly find people who are in a similar situation and want some company, but don't want to randomly message every Facebook friend that has a green dot by their name. In this situation, you need IRL.
+
+The app would allow students to sign in using their Hawk credentials. Every user would have a current status, free or invisible. You would then be able to choose whether you wanted to broadcast to all people or just a list of friends. From this broadcast group, free people within a specified radius would appear. You would then choose a person or multiple people. If both ends accepted the request, then each user's status automatically changes to invisible. 
+
+I would like to pilot this on our campus which is in great need of more social interaction. If 40-100 people sign up for the application, we would consider this a successful test.  
  
 •	Tech choices and justifications
 o	Here you will justify your technology choices for your project comparing your project to the tech-stacks of competing/similar companies
 •	(1) Describe which Webserver platform you will use and why
+
+We chose to use Apache. It is free, well-documented and easy to install and conifgure.
+
 •	(2) Describe which Database platform will be used and why
+
+We chose to go with mySQL because it's open-source, free and popular.
+
 •	(3) Explain what CSS/Javascript template(s) are used (Must be responsive) and why
+
+We will be creating a responsive design that we create rather than a template.  We will be using either the Eric Meyer reset code or the Yahoo YUI reset code; but beyond that, in order to ensure proper display on all devices, no templates (including Bootstrap) will be used.
+
 •	(4) Describe which Operating system your project used and why
+
+We chose Ubuntu because it is free, supports all of our technologies and is easy to deploy to Eucalyptus machines.
+
 •	(5) Describe which programming language your project used and why
+
+We chose PHP because it plays well with mySQL and is good for processing form data.
+
 •	(6) Describe and explain the development tools you chose and why
+
+We used our preffered editors to edit files in a consisten Vagrant development environment.
  
 •	    Cost justifications
 o	Conduct research on estimated costs to run your project as a 24/7 web-based business
@@ -59,6 +83,9 @@ o	(16) To ITMT-430 #general channel or other noted channel
  
 •	Build Tool and Continuous Integration (CI) Server
 o	(17) Document and describe how your Build tool will interact with your CI Server and explain how your infrastructure will be deployed via your software pipeline. 
+
+We are using a eucalyptus machines to run a Jenkins CI Server as well a Production machine running the LAMP stack. 
+
 •	(18) Deploy, configure, and secure a Jenkins system install 
  
 •	Use of Lint systems in the automated build system to test your code prior to deployment
@@ -66,6 +93,8 @@ o	(18) Python or PHP, and CSS/Javascript
 o	php Lint or Pylinter - http://stackoverflow.com/questions/31525063/running-a-pylinter-with-jenkins
 o	JSLint http://plugins.netbeans.org/plugin/40893/jslint
 o	CSS Lint - https://github.com/CSSLint/csslint/wiki/Command-line-interface (need nodejs)
+
+We are using Phing.
  
 •	Use of central code and operation script repository (Github) using good software pipeline practices
 o	(19) GitHub must have build instructions (README.md) so that anyone can build the project and deploy it
