@@ -10,6 +10,7 @@
 
 <div id="appwrapper">
 		<form action="main.php" method="post">
+		    User ID<input id="userid" type="text" name="userid" value="1">
 			Available<input id="availability" type="radio" name="available" value="1">
 			Invisible<input id="availability" type="radio" name="available" value="0" checked="checked">
 			<input type="submit" value="submit" name="submitbutton">
@@ -17,14 +18,10 @@
 		</form>
 <h1>People available:</h1>
 
-<?php 
-//SET LOGGED ON USER
-$id=1;
-?>
-
-
 <?php
 if (isset($_POST['submitbutton'])){
+
+//connect to database  
 include "connect.php";
 
 //**********************************************
@@ -37,19 +34,24 @@ include "connect.php";
 
 		$available = $_POST['available'];
 		$message =  $_POST['message'];
+		//SET LOGGED ON USER
+        $id= $_POST['userid'];
 		
-		$sql = "UPDATE user_table SET
+  
+        $sql = "UPDATE user_table SET
 			available='$available',
 			message='$message'
 			WHERE id='$id'
 			";
 		
 		$result = $mysqli->query($sql);
-		$result->close();
+		
 		
 		if ($mysqli->error) {
 			echo $mysqli->error;
 		}
+  
+        
 		
 //**********************************************
 //
@@ -67,7 +69,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
- $result->close();
+ 
 
 //calculate number of users that are available
 if ($result = $mysqli->query("SELECT * FROM test WHERE available=1")) {
