@@ -89,14 +89,14 @@ h1 {
 }
 
 .header{
-	height: 100%;
-	vertical-align: center;
-	float: right;
+    text-align: center;
+    max-width: 10em;
+	margin: 0 auto;
 	color: white;
 	font-size: 5em;
 }
 
-.header p {
+.header .iit {
 	font-size: .5em;
 	color: red;
 }
@@ -119,6 +119,7 @@ h1 {
 
 
 .login input[type="button"]{
+    margin: 1em auto;
 	color: white;
 	background-color: transparent;
 	padding: 1em 5em;
