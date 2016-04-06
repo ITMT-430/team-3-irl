@@ -10,11 +10,22 @@
 
 <div id="appwrapper">
 		<form action="main.php" method="post">
-		    User ID<input id="userid" type="text" name="userid" value="1">
-			Available<input id="availability" type="radio" name="available" value="1">
-			Invisible<input id="availability" type="radio" name="available" value="0" checked="checked">
-			<input type="submit" value="submit" name="submitbutton">
-			<input type="text" name="message" placeholder="Just chillin' . . .">
+		    <label>User ID</label>
+		    <input id="userid" type="text" name="userid" value="1">
+		    
+		    <label>What would you like to do?</label>
+		    <select name="activity" id="activity">
+			  <option>Go to the BOG</option>
+			  <option>Eat at the Commons</option>
+			  <option>Study Session</option>
+			  <option>Adventure into the city</option>
+			</select>
+			
+			<label>Available for</label>
+            <input id="availability" type="number" name="available">
+		
+			
+		    <input type="submit" value="submit" name="submitbutton">
 		</form>
 <h1>People available:</h1>
 
@@ -29,28 +40,35 @@ include "connect.php";
 // UPDATE DATABASE WHEN BUTTON IS PUSHED
 //
 //**********************************************
-
-//TO-DO: ESCAPE SINGLE QUOTE IN MESSAGE, THEY MESS UP THE DATABASE UPDATE
-
-		$available = $_POST['available'];
-		$message =  $_POST['message'];
-		//SET LOGGED ON USER
-        $id= $_POST['userid'];
-		
   
-        $sql = "UPDATE user_table SET
-			available='$available',
-			message='$message'
-			WHERE id='$id'
-			";
-		
-		$result = $mysqli->query($sql);
-		
-		
-		if ($mysqli->error) {
-			echo $mysqli->error;
-		}
   
+  //TO-DO: ESCAPE SINGLE QUOTE IN MESSAGE, THEY MESS UP THE DATABASE UPDATE
+  $available = $_POST['available'];
+
+  //find the date when available should expire
+  date_default_timezone_set('CST6CDT');
+  $datetime = date('Y-m-d h:i:sa', strtotime('+'.$available.' minutes'));
+
+  //Take in activity that user wants
+  $activity =  $_POST['activity'];
+
+  //SET LOGGED ON USER
+  $id= $_POST['userid'];
+
+
+  $sql = "UPDATE user_table SET
+      available='$datetime',
+      activity='$activity'
+      WHERE id='$id'
+      ";
+
+  $result = $mysqli->query($sql);
+
+
+  if ($mysqli->error) {
+      echo $mysqli->error;
+  }
+
         
 		
 //**********************************************
@@ -58,13 +76,21 @@ include "connect.php";
 // DISPLAY ROWS FROM DATABASE
 //
 //**********************************************
-$sql = "SELECT * FROM user_table WHERE available=1";
+$sql = "SELECT * FROM user_table";
 $result = $mysqli->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<div class='user-entry'>id: " . $row["id"]. " - Name: " . $row["name"] . "  Available: " . $row["available"] . "  Message: " . $row["message"]. "</div>";
+        echo "<div class='user-entry'>" 
+          .$row["id"]. 
+          "<div class='user-name'>" 
+          .$row["name"] .
+          "</div><div class='time'> Available Until: " 
+          . $row["available"] . 
+          "</div>  <div class='activity'>Wants to: " 
+          . $row["activity"]. 
+          "</div></div>";
     }
 } else {
     echo "0 results";
