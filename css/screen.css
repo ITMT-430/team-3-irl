@@ -60,6 +60,10 @@ h1 {
     margin: 1em;
 }
 
+a  {
+  text-decoration: none;
+}
+
 #appwrapper {
   margin: 0em auto;
   background-color: rgba(10,10,10, .5);
