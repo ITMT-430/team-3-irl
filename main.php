@@ -22,7 +22,7 @@
 			</select>
 			
 			<label>Available for (mintues)</label>
-            <input id="availability" type="number" name="available" min="5" max="120">
+            <input id="availability" type="number" name="available" min="10" max="120" step="10">
 		
 			
 		    <input type="submit" value="submit" name="submitbutton">
