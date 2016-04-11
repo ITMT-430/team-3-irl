@@ -15,8 +15,7 @@
 				<p class="iit">Illinois Tech</p>
 				iRL
 			</div>
-		<p>Settings</p>
-		<form action="main.php" method="post">
+		<form action="settings.php" method="post">
 		    <label for="phone">Phone</label>
 		    <input id="phone" type="text" name="phone" placeholder="123-456-7899"> 
 		    <label for="facebook">Facebook</label>
