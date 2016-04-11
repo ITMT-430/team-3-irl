@@ -1,0 +1,180 @@
+Final Paper Rubric
+Wednesday, March 2, 2016
+12:24 PM
+ 
+Deliverables:
+Information on font sizes, spacing, and APA style can be found in the ITM student handbook
+*Note your group may need to add more details in certain sections
+Formatting style located starting on page 16
+http://appliedtech.iit.edu/sites/sat/files/pdfs/ITM/ITMUndergraduateStudentHandbookFall2015.pdf
+ 
+Total Points:  500 points (50 elements listed below)
+ 
+Each section/bullet point is graded on a 3 position scale
+ 
+10 points
+Exactly explained and demonstrated described concept.  Additionally provided proper visual authentication, written documentation, and proper citation from textbook.  
+ 
+7 points
+Adequately explained and demonstrated concept.  Provided visual authentication, written documentation, and proper citation from textbook.  Some components were missing and or not clear.
+ 
+5 points
+Somewhat explained and demonstrated concept.  Provided visual authentication, written documentation, and proper citation from textbook.  Some components were missing and or not clear.
+ 
+3 points
+Inadequately explained and demonstrated concept.  Did not provided all necessary visual authentication, written documentation, or proper citation from textbook.  Some components were missing and or not clear.
+
+IRL is an application to bring people together in the same physical space as opposed to the current digital tools that have a tendency to keep people at their screens and digitally communicate. 
+
+The use case would be as follow. You're alone on a Friday night with nothing to do. You want to instantly find people who are in a similar situation and want some company, but don't want to randomly message every Facebook friend that has a green dot by their name. In this situation, you need IRL.
+
+The app would allow students to sign in using their Hawk credentials. Every user would have a current status, free or invisible. You would then be able to choose whether you wanted to broadcast to all people or just a list of friends. From this broadcast group, free people within a specified radius would appear. You would then choose a person or multiple people. If both ends accepted the request, then each user's status automatically changes to invisible. 
+
+I would like to pilot this on our campus which is in great need of more social interaction. If 40-100 people sign up for the application, we would consider this a successful test.  
+ 
+•	Tech choices and justifications
+o	Here you will justify your technology choices for your project comparing your project to the tech-stacks of competing/similar companies
+•	(1) Describe which Webserver platform you will use and why
+
+We chose to use Apache. It is free, well-documented and easy to install and conifgure.
+
+•	(2) Describe which Database platform will be used and why
+
+We chose to go with mySQL because it's open-source, free and popular.
+
+•	(3) Explain what CSS/Javascript template(s) are used (Must be responsive) and why
+
+We will be creating a responsive design that we create rather than a template.  We will be using either the Eric Meyer reset code or the Yahoo YUI reset code; but beyond that, in order to ensure proper display on all devices, no templates (including Bootstrap) will be used.
+
+•	(4) Describe which Operating system your project used and why
+
+We chose Ubuntu because it is free, supports all of our technologies and is easy to deploy to Eucalyptus machines.
+
+•	(5) Describe which programming language your project used and why
+
+We chose PHP because it plays well with mySQL and is good for processing form data.
+
+•	(6) Describe and explain the development tools you chose and why
+
+We used our preffered editors to edit files in a consisten Vagrant development environment.
+ 
+•	    Cost justifications
+o	Conduct research on estimated costs to run your project as a 24/7 web-based business
+•	(7) AWS
+	https://aws.amazon.com/
+•	(8) AZURE
+	https://azure.microsoft.com/
+ 
+•	UI/UX design outlines
+o	Present your outlines and mockup designs
+•	(9) Show the change over time of your UI/UX based on feedback and bug tests
+•	(10) Justify and explain your UI/UX design choices for each page in your application 
+	Based on ideas learned in ITMD 434/362
+•	(11) Designs must be stored in GitHub and your commit history must show changes
+ 
+•	Trello usage for Project Management
+o	(12) All atomic jobs/tasks should be listed
+o	(13) Must use labels/assignments to determine who owns what task.
+o	(14) Cards should have signs of action/discussion, notes, links, or references to Github issues (to the extent possible) 
+o	(15) Project must show progress - that matches build artifacts from your GitHub account
+ 
+•	Use Slack at minimum for build status notifications
+o	(16) To ITMT-430 #general channel or other noted channel
+ 
+•	Build Tool and Continuous Integration (CI) Server
+o	(17) Document and describe how your Build tool will interact with your CI Server and explain how your infrastructure will be deployed via your software pipeline. 
+
+We are using a eucalyptus machines to run a Jenkins CI Server as well a Production machine running the LAMP stack. 
+
+•	(18) Deploy, configure, and secure a Jenkins system install 
+ 
+•	Use of Lint systems in the automated build system to test your code prior to deployment
+o	(18) Python or PHP, and CSS/Javascript
+o	php Lint or Pylinter - http://stackoverflow.com/questions/31525063/running-a-pylinter-with-jenkins
+o	JSLint http://plugins.netbeans.org/plugin/40893/jslint
+o	CSS Lint - https://github.com/CSSLint/csslint/wiki/Command-line-interface (need nodejs)
+
+We are using Phing.
+ 
+•	Use of central code and operation script repository (Github) using good software pipeline practices
+o	(19) GitHub must have build instructions (README.md) so that anyone can build the project and deploy it
+o	(20) Must have weekly significant commits in all categories (UI/UX, development. Infrastructure, Schemas)showing visible application history
+o	(21) All Artifacts must be included (which includes)
+•	(22) Design
+•	(23) Docs
+•	(24) Infrastructure deployment code
+•	(25) SQL Schemas
+•	(26) Code
+ 
+•	Bug tracking
+o	(27) Bugs need to be tracked in GitHub issues or Trello - your team defines it and the person responsible for Testing and security must lead and run this portion of the project.   
+ 
+Infrastructure
+ 
+•	Use of load-balancer
+o	(28) Deploy a Eucalyptus Load-Balancer (ELB) in front of your application
+o	(29) Use Elastic (permanent) IPs for all designed infrastructure pieces. 
+•	This must match your Visio diagrams
+ 
+•	Use of EBS storage
+o	(30) Databases will be installed but the actual database will be moved to an EBS (Elastic Block Store) during configuration/installation
+ 
+•	Database functions (Application) 
+o	(31) Create Master/Slave replication in your database
+•	(32) Separate your application to send your database writes to the SQL Master
+•	(33) Separate your application to send your database reads to the SQL Slave
+ 
+•	Complete Visio diagram of infrastructure
+o	(34) Use the AWS stencils for Visio to represent any Cloud items
+•	https://aws.amazon.com/architecture/icons/
+ 
+Application Developers:
+ 
+•	CAS authentication 
+o	(35) Users authenticate through @hawk.iit.edu (You will be connected to OTS who will give you the necessary libraries)
+o	(36) Implies you will need to use session as well in your application
+•	Person responsible for testing and security will need to prove that Http Session is in place and working
+ 
+•	Creation of system and user level accounts
+o	(37) Anonymous use of the website
+o	(38) Standard User will have a user profile and functions that the anonymous user doesn't have
+o	(39 )Administrator
+•	Administrator has additional UI elements and access to introspection features
+•	Based on the user being authenticated additional options become visible/invisible
+•	Your CSS/design will have to take this into account
+•	There will be only one system
+ 
+•	Application must be tested with real data; valid data of consequence (Testing and Security)
+o	(40) Describe the method used to create valid test data.
+o	Create pre-populate items/questions/schemas for usage testing
+•	 https://github.com/marak/Faker.js/
+ 
+•	Must have operational introspection  (Infrastructure)
+o	(41) Website page where sys-admins can turn on or off features of software
+o	(42) Must have a database save/restore backup feature for entire site
+o	(43) Must have a feature that turns the site into read-only (no uploads) with the push of a button by system administrator
+•	This requires you to turn UI elements visible and invisible
+ 
+Operations (Ops)
+ 
+•	Operations person must decide metrics to capture
+o	(44) Describe the type and nature of the metrics your application will collect and display
+o	(45) Explain which tools your will use for and why
+o	(46) Must perform benchmarks and baseline recordings of your application underload and at rest.
+ 
+Security and Testing
+ 
+•	(47) Must prove that system is SQL injection and OS is secure (firewall ports and uname/passwords)
+•	(48) Must encrypt the content of databases
+ 
+Testers 
+ 
+•	(49) Must not have usability bugs - features must perform as designed upon delivery
+ 
+Deliverables
+Information on font sizes, spacing, and APA style can be found in the ITM student handbook
+*Note your group may need to add more details in certain sections
+Formatting style located starting on page 16
+(50) http://appliedtech.iit.edu/sites/sat/files/pdfs/ITM/ITMUndergraduateStudentHandbookFall2015.pdf
+ 
+•

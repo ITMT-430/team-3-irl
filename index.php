@@ -12,14 +12,12 @@
 		
 		<div class="login">
 			<div class="header">
-				<p>Illinois Tech</p>
+				<p class="iit">Illinois Tech</p>
 				iRL
-				
 			</div>
-	
-			<input type="text" placeholder="username" name="user"><br>
-			<input type="password" placeholder="password" name="password"><br>
-			<a href="main.php"><input type="button" value="Login"></a>
+			
+			<a href="demo.php"><input type="button" value="Login with Hawk Credentials"></a>
+			<a href="main.php"><input type="button" value="main.php"></a>
 		</div>    
     
   
