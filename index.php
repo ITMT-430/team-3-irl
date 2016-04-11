@@ -16,7 +16,7 @@
 				iRL
 			</div>
 			
-			<a href="file.php"><input type="button" value="Login with Hawk Credentials"></a>
+			<a href="demo.php"><input type="button" value="Login with Hawk Credentials"></a>
 			<a href="main.php"><input type="button" value="main.php"></a>
 		</div>    
     
