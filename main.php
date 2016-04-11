@@ -21,8 +21,8 @@
 			  <option>Adventure into the city</option>
 			</select>
 			
-			<label>Available for</label>
-            <input id="availability" type="number" name="available">
+			<label>Available for (mintues)</label>
+            <input id="availability" type="number" name="available" min="5" max="120">
 		
 			
 		    <input type="submit" value="submit" name="submitbutton">
