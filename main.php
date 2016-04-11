@@ -24,9 +24,10 @@
 			  <option>Eat at the Commons</option>
 			  <option>Study Session</option>
 			  <option>Adventure into the city</option>
+				<option>Go to bar</option>
 			</select>
 			
-			<label>Available for (mintues)</label>
+			<label>Available for (minutes)</label>
             <input id="availability" type="number" name="available" min="10" max="120" step="10">
 		
 			
