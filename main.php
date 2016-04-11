@@ -8,6 +8,11 @@
 </head>
 <body class="citybackground">
 
+<ul>
+  <li><a href="main.php">Home</a></li>
+  <li><a href="setting.php">Settings</a></li>
+</ul>
+
 <div id="appwrapper">
 		<form action="main.php" method="post">
 			Available<input id="availability" type="radio" name="available" value="1">
