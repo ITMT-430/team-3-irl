@@ -8,7 +8,10 @@
 
   <body class="citybackground">
 
-    
+	<ul>
+  	<li><a href="main.php">Home</a></li>
+  	<li><a href="settings.php">Settings</a></li>
+	</ul>    
 		
 		<div class="login">
 			<div class="header">
