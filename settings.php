@@ -7,7 +7,10 @@
   </head>
 
   <body class="citybackground">
-	<?php require_once 'login.php' ?>
+	<?php 
+		require_once 'login.php' 
+		include 'nav.php';
+	?>
 	<ul>
   	<li><a href="main.php">Home</a></li>
   	<li><a href="settings.php">Settings</a></li>
