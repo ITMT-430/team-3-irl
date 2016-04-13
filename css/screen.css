@@ -82,7 +82,7 @@ a  {
   font-weight: bold;
   background-color: rgba(76,147,230,.5);
 	border: 1px solid ghostwhite;
-  color: black;
+  color: white;
   padding: 1em;
   border: 3px outset gray;
 }
@@ -93,7 +93,7 @@ a  {
 }
 
 .user-entry .time {
-  color: dimgray;
+  color: black;
 	margin-bottom: 1em;
 }
 
