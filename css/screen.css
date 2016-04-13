@@ -84,7 +84,7 @@ a  {
 	border: 1px solid ghostwhite;
   color: white;
   padding: 1em;
-  border: 3px outset gray;
+	margin: .5em 0;
 }
 
 .user-entry .user-name {
