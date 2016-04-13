@@ -80,7 +80,7 @@ a  {
 .user-entry {
   font-family: sans-serif;
   font-weight: bold;
-  background: rgba(76,147,230,.5);
+  background-color: rgba(76,147,230,.5);
 	border: 1px solid ghostwhite;
   color: black;
   padding: 1em;
