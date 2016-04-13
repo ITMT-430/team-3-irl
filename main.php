@@ -7,19 +7,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </head>
 <body class="citybackground">
-<?php require_once 'login.php' ?>
-<ul>
-  <li><a href="main.php">Home</a></li>
-  <li><a href="settings.php">Settings</a></li>
-</ul>
+<?php 
+	require_once 'login.php'; 
+	include 'nav.php';
+?>
 
 <div id="appwrapper">
 		<form action="main.php" method="post">
 		    <label>User ID</label>
 		    <input id="userid" type="text" name="userid" value="1">
-		    
+		 
 		    <label>What would you like to do?</label>
-		    <select name="activity" id="activity">
+		  <select name="activity" id="activity">
 			  <option>Go to the BOG</option>
 			  <option>Eat at the Commons</option>
 			  <option>Study Session</option>
@@ -88,9 +87,8 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<div class='user-entry'>" 
-          .$row["id"]. 
-          "<div class='user-name'>" 
+        echo "<div class='user-entry'> 
+          <div class='user-name'>" 
           .$row["name"] .
           "</div><div class='time'> Available Until: " 
           . $row["available"] . 
