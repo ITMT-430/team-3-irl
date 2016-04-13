@@ -75,12 +75,13 @@ a  {
   border-bottom-right-radius: 1em;
 }
 
-//LIST OF PEOPLE AVAILABLE
+/*********LIST OF PEOPLE AVAILABLE******/
 
 .user-entry {
   font-family: sans-serif;
   font-weight: bold;
-  background: linear-gradient(to bottom, #cdeb8e 0%,#a5c956 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: rgba(25,25,25,.5);
+	border: 1px solid ghostwhite;
   color: black;
   padding: 1em;
   border: 3px outset gray;
