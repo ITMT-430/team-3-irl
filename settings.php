@@ -8,7 +8,7 @@
 
   <body class="citybackground">
 	<?php 
-		require_once 'login.php' 
+		require_once 'login.php'; 
 		include 'nav.php';
 	?>
 	<ul>
