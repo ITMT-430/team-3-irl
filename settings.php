@@ -7,7 +7,7 @@
   </head>
 
   <body class="citybackground">
-
+	<?php require_once 'login.php' ?>
 	<ul>
   	<li><a href="main.php">Home</a></li>
   	<li><a href="settings.php">Settings</a></li>

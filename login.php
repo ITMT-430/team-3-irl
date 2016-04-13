@@ -21,7 +21,7 @@ phpCAS::forceAuthentication();
 
 // for this test, simply print that the authentication was successfull
 ?>
-<html>
+<!--<html>
   <head>
     <title>phpCAS simple client</title>
   </head>
@@ -31,4 +31,4 @@ phpCAS::forceAuthentication();
     <p>phpCAS version is <b><?php echo phpCAS::getVersion(); ?></b>.</p>
     <p><a href="?logout=">Logout</a></p>
   </body>
-</html>
+</html> -->
