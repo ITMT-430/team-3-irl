@@ -3,5 +3,6 @@
 if(isset($_REQUEST['logout'])) {
     phpCAS::logout();
 }
+echo "Thanks and have a good day!!";
 
 ?>
