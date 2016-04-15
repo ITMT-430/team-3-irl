@@ -75,25 +75,30 @@ a  {
   border-bottom-right-radius: 1em;
 }
 
+/*********LIST OF PEOPLE AVAILABLE******/
+
 .user-entry {
   font-family: sans-serif;
   font-weight: bold;
-  background: linear-gradient(to bottom, #cdeb8e 0%,#a5c956 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  color: black;
+  background-color: rgba(76,147,230,.5);
+	border: 1px solid ghostwhite;
+  color: white;
   padding: 1em;
-  border: 3px outset gray;
+	margin: .5em 0;
 }
 
 .user-entry .user-name {
   font-size: 1.5em;
+	margin-bottom: 1em;
 }
 
 .user-entry .time {
-  color: dimgray;
+  color: black;
+	margin-bottom: 1em;
 }
 
 .user-entry .activity {
-  
+  margin-bottom: 1em;
 }
 
 /************************************FOR LOGIN PAGE*******************************/
@@ -156,14 +161,14 @@ input, select{
   padding: .5em;
 }
 
-/*****************For Navigation Bar**************************/
+/*****************FOR NAV BAR**************************/
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-    text-align: center;
+		background: linear-gradient(to bottom, rgba(242,110,128,1) 0%,rgba(238,84,102,1) 50%,rgba(240,54,69,1) 51%,rgba(222,33,30,1) 100%);
+		text-align: right;
     text-decoration: none;
 }
 
@@ -172,6 +177,7 @@ li {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
+		font-weight: bold;
 
 }
 
