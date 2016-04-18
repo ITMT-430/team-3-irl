@@ -31,11 +31,11 @@
 		    <label for="phone">Phone</label>
 		    <input id="phone" type="text" name="phone" value='<?php echo $row['phone']?>'> 
 		    <label for="facebook">Facebook</label>
-				<input id="facebook" type="text" name="facebook" value='<?php echo $row['name']?>'> 
+				<input id="facebook" type="text" name="facebook" value='<?php echo $row['facebook']?>'> 
 				<label for="twitter">Twitter</label>
-				<input id="twitter" type="text" name="twitter" value='<?php echo $row['name']?>'>
+				<input id="twitter" type="text" name="twitter" value='<?php echo $row['twitter']?>'>
 				<label for="email">Email</label>
-				<input id="email" type="text" name="email" value='<?php echo $row['name']?>'>
+				<input id="email" type="text" name="email" value='<?php echo $row['email']?>'>
 	
 				<input type="submit" value="submit" name="submitbutton">
 		</form>
