@@ -10,10 +10,13 @@
 
   include "login.php";
   include "connect.php";
-		$username=phpCAS::getUser();
-		?>
-  <p>****Please Sign up****</p>
-  <p>****Use Hawk Information****</p>
+  include "nav.php";
+  $username=phpCAS::getUser();
+
+  $sql = "SELECT * FROM user_table WHERE username='$username'";
+  $result = $mysqli->query($sql);
+  $row = $result->fetch_assoc();
+	?>
 
   <div class="login">
 			<div class="header">
@@ -21,33 +24,29 @@
 				iRL
 			</div>
 		<form method="post">
-		<label for="firstname">First Name</label>
-		<input id="firstname" type="text" name="firstname" placeholder="John">
-		<label for="lastname">Last Name</label>
-		<input id="lastname" type="text" name="lastname" placeholder="Doe">
+		<label for="firstname">NAme</label>
+		<input id="firstname" type="text" name="name" value='<?php echo $row['name']?>'>
 
 		
 		    <label for="phone">Phone</label>
-		    <input id="phone" type="text" name="phone" placeholder="(123) 456-7899"> 
+		    <input id="phone" type="text" name="phone" value='<?php echo $row['phone']?>'> 
 		    <label for="facebook">Facebook</label>
-				<input id="facebook" type="text" name="facebook" placeholder="https://facebook.com/superdude"> 
+				<input id="facebook" type="text" name="facebook" value='<?php echo $row['name']?>'> 
 				<label for="twitter">Twitter</label>
-				<input id="twitter" type="text" name="twitter" placeholder="https://twitter.com/superdude">
+				<input id="twitter" type="text" name="twitter" value='<?php echo $row['name']?>'>
 				<label for="email">Email</label>
-				<input id="email" type="text" name="email" placeholder="you@something.com">
+				<input id="email" type="text" name="email" value='<?php echo $row['name']?>'>
 	
 				<input type="submit" value="submit" name="submitbutton">
 		</form>
 		</div> 
 		<?php
 		if (isset($_POST['submitbutton'])){
-			$firstname = $_POST['firstname'];
-			$lastname = $_POST['lastname'];
+			$name = $_POST['name'];
   			$phone = $_POST['phone'];
   			$facebook = $_POST['facebook'];
   			$twitter = $_POST['twitter'];
   			$email = $_POST['email'];
-  			$name=$firstname." ".$lastname;
 
   			$sql = "INSERT INTO user_table (`username`, `name`, `phone`, `facebook`, `email`, `twitter`) VALUES ('$username','$name','$phone','$facebook','$email','$twitter')";
 
