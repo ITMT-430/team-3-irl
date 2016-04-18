@@ -46,7 +46,7 @@
   			$facebook = $_POST['facebook'];
   			$twitter = $_POST['twitter'];
   			$email = $_POST['email'];
-  			$name=$firstname.$lastname;
+  			$name=$firstname." ".$lastname;
 
   			$sql = "INSERT INTO user_table (`username`, `name`, `phone`, `facebook`, `email`, `twitter`) VALUES ('$username','$name','$phone','$facebook','$email','$twitter')";
 
@@ -55,12 +55,15 @@
 			  if ($mysqli->error) {
 			      echo $mysqli->error;
 			      $message="Unable to update!";
+			      echo "<script type='text/javascript'>alert('$message');</script>";
 			  } else {
 			  	$message="Update Succesful!";
+			  	header("Refresh:0; url=main.php");
+			  	echo "<script type='text/javascript'>alert('$message');</script>";
+
 			  }
 			$mysqli->close();
-			echo "<script type='text/javascript'>alert('$message');</script>";
-			header("Refresh:0");
+			
     	}?>
 
   </body>
