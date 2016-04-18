@@ -8,39 +8,44 @@
 </head>
 <body class="citybackground">
 <?php 
-	require_once 'login.php'; 
+  require_once 'login.php'; 
   $username=phpCAS::getUser();
-	//$username = "scarpen3";
-	include 'nav.php';
+  //$username = "scarpen3";
+  include 'nav.php';
+  include 'connect.php';
+  $sql = "SELECT * FROM user_table WHERE username='$username'";
+  $result = $mysqli->query($sql);
+  $num= $result->num_rows;
+  if($num == '0'){
+      header("Location: signup.php");
+  } else {
+  }
 ?>
 
 <div id="appwrapper">
-		<form action="main.php" method="post">
-		    <label>User ID</label>
-		    <input id="username" type="text" name="username" value='<?php echo $username;?>'>
-		 
-		    <label>What would you like to do?</label>
-		  <select name="activity" id="activity">
-			  <option>Go to the BOG</option>
-			  <option>Eat at the Commons</option>
-			  <option>Study Session</option>
-			  <option>Adventure into the city</option>
-				<option>Go to bar</option>
-			</select>
-			
-			<label>Available for (minutes)</label>
+    <form action="main.php" method="post">
+        <label>User ID</label>
+        <input id="username" type="text" name="username" value='<?php echo $username;?>'>
+     
+        <label>What would you like to do?</label>
+      <select name="activity" id="activity">
+        <option>Go to the BOG</option>
+        <option>Eat at the Commons</option>
+        <option>Study Session</option>
+        <option>Adventure into the city</option>
+        <option>Go to bar</option>
+      </select>
+      
+      <label>Available for (minutes)</label>
             <input id="availability" type="number" name="available" min="10" max="120" step="10">
-		
-			
-		    <input type="submit" value="submit" name="submitbutton">
-		</form>
+    
+      
+        <input type="submit" value="submit" name="submitbutton">
+    </form>
 <h1>People available:</h1>
 
 <?php
 if (isset($_POST['submitbutton'])){
-
-//connect to database  
-include "connect.php";
 
 //**********************************************
 //
@@ -77,7 +82,7 @@ include "connect.php";
   }
 
         
-		
+    
 //**********************************************
 //
 // DISPLAY ROWS FROM DATABASE
@@ -97,13 +102,13 @@ if ($result->num_rows > 0) {
           "</div>  <div class='activity'>Wants to: " 
           . $row["activity"]. 
           "</div></div><div class='contactinfo'>"
-					. $row["phone"]
-					. $row["facebook"]
-					. $row["twitter"] .
-					"</div>";
+          . $row["phone"]
+          . $row["facebook"]
+          . $row["twitter"] .
+          "</div>";
     }
 }
-	else {
+  else {
     echo "0 results";
 }
  
