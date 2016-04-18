@@ -100,7 +100,7 @@ if ($result->num_rows > 0) {
 					. $row["phone"]
 					. $row["facebook"]
 					. $row["twitter"] .
-					"</div>;
+					"</div>";
     }
 }
 	else {
