@@ -9,13 +9,14 @@
 <body class="citybackground">
 <?php 
 	require_once 'login.php'; 
+  $username=phpCAS::getUser();
 	include 'nav.php';
 ?>
 
 <div id="appwrapper">
 		<form action="main.php" method="post">
 		    <label>User ID</label>
-		    <input id="userid" type="text" name="userid" value="1">
+		    <input id="username" type="text" name="username" value='<?php echo $username;?>'>
 		 
 		    <label>What would you like to do?</label>
 		  <select name="activity" id="activity">
@@ -58,13 +59,13 @@ include "connect.php";
   $activity =  $_POST['activity'];
 
   //SET LOGGED ON USER
-  $id= $_POST['userid'];
+  $username= $_POST['username'];
 
 
   $sql = "UPDATE user_table SET
       available='$datetime',
       activity='$activity'
-      WHERE id='$id'
+      WHERE username='$username'
       ";
 
   $result = $mysqli->query($sql);

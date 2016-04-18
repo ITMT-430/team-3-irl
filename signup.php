@@ -6,6 +6,11 @@
     <link rel="stylesheet" type="text/css" href="css/screen.css">
   </head>
   <body class="citybackground">
+  <?php 
+  include "login.php";
+  include "connect.php";
+		$username=phpCAS::getUser();
+		?>
   <p>****Please Sign up****</p>
   <p>****Use Hawk Information****</p>
 
@@ -14,7 +19,7 @@
 				<p class="iit">Illinois Tech</p>
 				iRL
 			</div>
-		<form action="settings.php" method="post">
+		<form method="post">
 		<label for="firstname">First Name</label>
 		<input id="firstname" type="text" name="firstname" placeholder="John">
 		<label for="lastname">Last Name</label>
@@ -22,7 +27,7 @@
 
 		
 		    <label for="phone">Phone</label>
-		    <input id="phone" type="text" name="phone" placeholder="123-456-7899"> 
+		    <input id="phone" type="text" name="phone" placeholder="(123) 456-7899"> 
 		    <label for="facebook">Facebook</label>
 				<input id="facebook" type="text" name="facebook" placeholder="https://facebook.com/superdude"> 
 				<label for="twitter">Twitter</label>
@@ -33,6 +38,29 @@
 				<input type="submit" value="submit" name="submitbutton">
 		</form>
 		</div> 
-		
+		<?php
+		if (isset($_POST['submitbutton'])){
+			$firstname = $_POST['firstname'];
+			$lastname = $_POST['lastname'];
+  			$phone = $_POST['phone'];
+  			$facebook = $_POST['facebook'];
+  			$twitter = $_POST['twitter'];
+  			$email = $_POST['email'];
+  			$name=$firstname.$lastname;
+
+  			$sql = "INSERT INTO user_table (`username`, `name`, `phone`, `facebook`, `email`, `twitter`) VALUES ('$username','$name','$phone','$facebook','$email','$twitter')";
+
+		      $result = $mysqli->query($sql);
+
+			  if ($mysqli->error) {
+			      echo $mysqli->error;
+			      $message="Unable to update!";
+			  } else {
+			  	$message="Update Succesful!";
+			  }
+			$mysqli->close();
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			header("Refresh:0");
+    	}?>
 
   </body>
