@@ -10,6 +10,7 @@
 <?php 
 	require_once 'login.php'; 
   $username=phpCAS::getUser();
+	//$username = "scarpen3";
 	include 'nav.php';
 ?>
 
@@ -91,13 +92,18 @@ if ($result->num_rows > 0) {
         echo "<div class='user-entry'> 
           <div class='user-name'>" 
           .$row["name"] .
-          "</div><div class='time'> Available Until: " 
+         "</div><div class='time'> Available Until: " 
           . $row["available"] . 
           "</div>  <div class='activity'>Wants to: " 
           . $row["activity"]. 
-          "</div></div>";
+          "</div></div><div class='contactinfo'>"
+					. $row["phone"]
+					. $row["facebook"]
+					. $row["twitter"] .
+					"</div>;
     }
-} else {
+}
+	else {
     echo "0 results";
 }
  
