@@ -12,6 +12,7 @@
   require_once 'login.php'; 
   $username=phpCAS::getUser();
   //$username = "scarpen3";
+  validatetoken();
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";

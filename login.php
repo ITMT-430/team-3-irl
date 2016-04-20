@@ -19,6 +19,7 @@ phpCAS::forceAuthentication();
 // and the user's login name can be read with phpCAS::getUser().
 
 // for this test, simply print that the authentication was successfull
+generatetoken();
 ?>
 <!--<html>
   <head>
