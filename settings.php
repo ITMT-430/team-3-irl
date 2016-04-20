@@ -25,11 +25,11 @@
 			</div>
 		<form method="post">
 		<label for="firstname">Name</label>
-		<input id="firstname" type="text" name="name" value='<?php echo $row['name']?>'>
+		<input id="firstname" type="text" name="name" value="<?php echo $row['name']?>">
 
 		
 		    <label for="phone">Phone</label>
-		    <input id="phone" type="text" name="phone" value="?php echo $row['phone']?>"> 
+		    <input id="phone" type="text" name="phone" value="<?php echo $row['phone']?>"> 
 		    <label for="facebook">Facebook</label>
 				<input id="facebook" type="text" name="facebook" value="<?php echo $row['facebook']?>"> 
 				<label for="twitter">Twitter</label>
