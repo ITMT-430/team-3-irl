@@ -19,16 +19,6 @@ phpCAS::forceAuthentication();
 // and the user's login name can be read with phpCAS::getUser().
 
 // for this test, simply print that the authentication was successfull
-include "connect.php";
-$username=phpCAS::getUser();
-$sql = "SELECT * FROM user_table WHERE username='$username'";
-$result = $mysqli->query($sql);
-
-if($result->num_rows == 0){
-	header("Refresh:0; url=signup.php");
-} else {
-	header("Refresh:0; url=main.php");
-}
 ?>
 <!--<html>
   <head>
