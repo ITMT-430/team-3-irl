@@ -15,8 +15,8 @@
   //Use the function below to see if user is already authenticated.  Will return true if they are or false if they aren't.
   function validatetoken() {
     //Please read the experation and servertoken fields into the vars below.
-    $experation = ""
-    $servertoken = ""
+    $experation = "";
+    $servertoken = "";
     
     //Don't touch below.
     $authed = false;
