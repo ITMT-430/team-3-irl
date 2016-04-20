@@ -84,7 +84,7 @@ a  {
 	border: 1px solid ghostwhite;
   color: white;
   padding: 1em;
-	margin: .5em 0;
+  margin: .5em 0 0em 0;
 }
 
 .user-entry .user-name {
@@ -99,6 +99,21 @@ a  {
 
 .user-entry .activity {
   margin-bottom: 1em;
+}
+
+.contactinfo {
+	background-color: rgba(10,200,10, .5);
+	padding: 1em;
+	display: block;
+}
+
+.contactinfoitem {
+	display: inline;
+	margin: 0 1em;
+}
+
+.isHidden {
+	display: hidden;
 }
 
 /************************************FOR LOGIN PAGE*******************************/

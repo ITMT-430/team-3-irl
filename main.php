@@ -5,6 +5,7 @@
   <title>iRL</title>
   <link rel="stylesheet" href="css/screen.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="javascript.js"></script>
 </head>
 <body class="citybackground">
 <?php 
@@ -96,11 +97,14 @@ if ($result->num_rows > 0) {
           . $row["available"] . 
           "</div>  <div class='activity'>Wants to: " 
           . $row["activity"]. 
-          "</div></div><div class='contactinfo'>"
-					. $row["phone"]
-					. $row["facebook"]
+          "</div></div>
+					<div class='contactinfo hidden'><div class='contactinfoitem'>P: "
+					. $row["phone"] .
+					"</div><div class='contactinfoitem'>F: "
+					. $row["facebook"] .
+					"</div><div class='contactinfoitem'>T: "
 					. $row["twitter"] .
-					"</div>;
+					"</div></div>";
     }
 }
 	else {
