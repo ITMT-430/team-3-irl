@@ -23,7 +23,7 @@
     if (!($experation < time())) {
       if(isset($_COOKIE["rltoken"])) {
         $clienttoken = $_COOKIE["rltoken"];
-        if ($clienttoken == hash('ripemd160', $servertoken) {
+        if ($clienttoken == hash('ripemd160', $servertoken)) {
           $authed = true;
         }
       }
