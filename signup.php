@@ -11,14 +11,14 @@
   include "connect.php";
 		$username=phpCAS::getUser();
 		?>
-  <p>****Please Sign up****</p>
-  <p>****Use Hawk Information****</p>
 
   <div class="login">
 			<div class="header">
 				<p class="iit">Illinois Tech</p>
 				iRL
+				<p class="iit">Please signup!</p>
 			</div>
+			
 		<form method="post">
 		<label for="firstname">First Name</label>
 		<input id="firstname" type="text" name="firstname" placeholder="John">
@@ -35,7 +35,7 @@
 				<label for="email">Email</label>
 				<input id="email" type="text" name="email" placeholder="you@something.com">
 	
-				<input type="submit" value="submit" name="submitbutton">
+				<input type="submit" value="Create Account" name="submitbutton">
 		</form>
 		</div> 
 		<?php
