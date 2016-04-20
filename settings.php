@@ -24,7 +24,7 @@
 				iRL
 			</div>
 		<form method="post">
-		<label for="firstname">NAme</label>
+		<label for="firstname">Name</label>
 		<input id="firstname" type="text" name="name" value='<?php echo $row['name']?>'>
 
 		
@@ -48,8 +48,15 @@
   			$twitter = $_POST['twitter'];
   			$email = $_POST['email'];
 
-  			$sql = "INSERT INTO user_table (`username`, `name`, `phone`, `facebook`, `email`, `twitter`) VALUES ('$username','$name','$phone','$facebook','$email','$twitter')";
-
+  			$sql = "UPDATE user_table SET
+            name='$datetime',
+            phone='$activity',
+            facebook='$facebook',
+            twitter='$twitter',
+            email='$email'
+            WHERE username='$username'
+            ";
+          
 		      $result = $mysqli->query($sql);
 
 			  if ($mysqli->error) {
