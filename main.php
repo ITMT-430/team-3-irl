@@ -2,7 +2,7 @@
   $servertoken = "";
   $clienttoken = "";
   //The function below should be run once we have authenticated the user via CAS.
-  function generatetoken(); {
+  function generatetoken() {
     $raw = "";
     $servertoken = hash('sha256', $raw);
     $clienttoken = hash('ripemd160', $servertoken);
@@ -13,7 +13,7 @@
   }
   
   //Use the function below to see if user is already authenticated.  Will return true if they are or false if they aren't.
-  function validatetoken(); {
+  function validatetoken() {
     //Please read the experation and servertoken fields into the vars below.
     $experation = ""
     $servertoken = ""
