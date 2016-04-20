@@ -34,7 +34,7 @@
         <input id="twitter" type="text" name="twitter" value="<?php echo $row['twitter']?>">
         <label for="email">Email</label>
         <input id="email" type="text" name="email" value="<?php echo $row['email']?>">
-        <input type="submit" value="submit" name="submitbutton">
+        <input type="submit" value="Save Settings" name="submitbutton">
       </form>
       </div> 
       <?php
@@ -46,12 +46,12 @@
           $email = $_POST['email'];
 
           $sql = "UPDATE user_table SET
-          name='$name',
-          phone='$phone',
-          facebook='$facebook',
-          twitter='$twitter',
-          email='$email'
-          WHERE username='$username'
+                  name='$name',
+                  phone='$phone',
+                  facebook='$facebook',
+                  twitter='$twitter',
+                  email='$email'
+                  WHERE username='$username'
           ";
 
             $result = $mysqli->query($sql);
