@@ -11,7 +11,7 @@
 <?php 
   require_once 'login.php'; 
   $username=phpCAS::getUser();
-  //$username = "scarpen3";
+  $username = "scarpen3";
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
@@ -22,11 +22,16 @@
   } else {
   }
 ?>
+			
+
 
 <div id="appwrapper">
+   <div class="header">
+				<p class="iit">Illinois Tech</p>
+				iRL
+  </div>
+   
     <form action="main.php" method="post">
-        <label>User ID</label>
-        <input id="username" type="text" name="username" value='<?php echo $username;?>'>
      
         <label>What would you like to do?</label>
       <select name="activity" id="activity">
@@ -38,12 +43,17 @@
       </select>
       
       <label>Available for (minutes)</label>
-            <input id="availability" type="number" name="available" min="10" max="120" step="10">
-    
-      
-        <input type="submit" value="submit" name="submitbutton">
+        <input id="availability" type="number" name="availablefor" min="0" max="120" svalue="0">
+        <input type="submit" value="Update Status" name="submitbutton">
     </form>
-<h1>People available:</h1>
+ 
+
+<h1>People available</h1>
+
+<?php
+  $url1=$_SERVER['REQUEST_URI'];
+  header("Refresh: 5; URL=$url1");
+?>
 
 <?php
 if (isset($_POST['submitbutton'])){
@@ -54,25 +64,28 @@ if (isset($_POST['submitbutton'])){
 //
 //**********************************************
   
-  
   //TO-DO: ESCAPE SINGLE QUOTE IN MESSAGE, THEY MESS UP THE DATABASE UPDATE
-  $available = $_POST['available'];
+  $availablefor = $_POST['availablefor'];
 
-  //find the date when available should expire
+  //find the time when available should expire
   date_default_timezone_set('CST6CDT');
-  $datetime = date('Y-m-d h:i:sa', strtotime('+'.$available.' minutes'));
-
+  
+  //calculate time that user goes dark
+  if ($availablefor > 0){
+    $expiration = ((time()/60)+$availablefor);
+  }
+  else {
+    $expiration = 0;
+  }
+  
   //Take in activity that user wants
   $activity =  $_POST['activity'];
 
-  //SET LOGGED ON USER
-  $username= $_POST['username'];
-
 
   $sql = "UPDATE user_table SET
-      available='$datetime',
+      available='$expiration',
       activity='$activity'
-      WHERE username='$username'
+      WHERE username='scarpen3'
       ";
 
   $result = $mysqli->query($sql);
@@ -82,54 +95,49 @@ if (isset($_POST['submitbutton'])){
       echo $mysqli->error;
   }
 
-        
-    
+}
+  
 //**********************************************
 //
 // DISPLAY ROWS FROM DATABASE
 //
 //**********************************************
-$sql = "SELECT * FROM user_table";
-$result = $mysqli->query($sql);
+    date_default_timezone_set('CST6CDT');
+  
+    $sql = "SELECT * FROM user_table WHERE available > " .(time()/60);
+    $result = $mysqli->query($sql);
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<div class='user-entry'> 
-          <div class='user-name'>" 
-          .$row["name"] .
-         "</div><div class='time'> Available Until: " 
-          . $row["available"] . 
-          "</div>  <div class='activity'>Wants to: " 
-          . $row["activity"]. 
-          "</div></div>
-					<div class='contactinfo hidden'><div class='contactinfoitem'>P: "
-					. $row["phone"] .
-					"</div><div class='contactinfoitem'>F: "
-					. $row["facebook"] .
-					"</div><div class='contactinfoitem'>T: "
-					. $row["twitter"] .
-					"</div></div>";
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+          $expiration = $row["available"];
+          echo "<div class='user-entry'> 
+            <div class='user-name'>" 
+            .$row["name"] .
+           "</div><div class='time'> Available for: " 
+            . round(($expiration - (time()/60)), 2) . 
+            " minutes</div>  <div class='activity'>Wants to: " 
+            . $row["activity"]. 
+            "</div></div>
+            <div class='contactinfo hidden'><div class='contactinfoitem'>P: "
+            . $row["phone"] .
+            "</div><div class='contactinfoitem'>F: "
+            . $row["facebook"] .
+            "</div><div class='contactinfoitem'>T: "
+            . $row["twitter"] .
+            "</div></div>";
+        }
     }
-}
   else {
     echo "0 results";
-}
+  }
  
 
-//calculate number of users that are available
-if ($result = $mysqli->query("SELECT * FROM test WHERE available=1")) {
 
-    /* determine number of rows result set */
-    $row_cnt = $result->num_rows;
-
-    /* close result set */
-    $result->close();
-}
 
 /* close connection */
 $mysqli->close();
-}
+
 ?>
     
   </div>
