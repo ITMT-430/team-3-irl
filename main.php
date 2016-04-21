@@ -23,8 +23,6 @@
   } else {
   }
 ?>
-			
-
 
 <div id="appwrapper">
    <div class="header">
@@ -44,7 +42,7 @@
       </select>
       
       <label>Available for (minutes)</label>
-        <input id="availability" type="number" name="availablefor" min="0" max="120" svalue="0">
+        <input id="availability" type="number" name="availablefor" step="5" min="0" max="120" value="0">
         <input type="submit" value="Update Status" name="submitbutton">
     </form>
  
@@ -53,7 +51,7 @@
 
 <?php
   $url1=$_SERVER['REQUEST_URI'];
-  header("Refresh: 5; URL=$url1");
+  header("Refresh: 10; URL=$url1");
 ?>
 
 <?php
