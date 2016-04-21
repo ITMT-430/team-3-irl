@@ -9,7 +9,6 @@
   <?php 
   include "login.php";
   include "connect.php";
-		$username=phpCAS::getUser();
 		?>
 
   <div class="login">

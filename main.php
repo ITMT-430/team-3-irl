@@ -9,9 +9,7 @@
 </head>
 <body class="citybackground">
 <?php 
-  require_once 'login.php'; 
-  $username=phpCAS::getUser();
-  //$username = "scarpen3";
+  //require_once 'login.php';
   //validatetoken();
   include 'nav.php';
   include 'connect.php';
@@ -84,7 +82,7 @@ if (isset($_POST['submitbutton'])){
   $sql = "UPDATE user_table SET
       available='$expiration',
       activity='$activity'
-      WHERE username='scarpen3'
+      WHERE username='$username'
       ";
 
   $result = $mysqli->query($sql);
@@ -131,9 +129,6 @@ if (isset($_POST['submitbutton'])){
     echo "0 results";
   }
  
-
-
-
 /* close connection */
 $mysqli->close();
 
