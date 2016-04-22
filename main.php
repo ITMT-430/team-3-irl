@@ -5,12 +5,13 @@
   <title>iRL</title>
   <link rel="stylesheet" href="css/screen.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script src="javascript.js"></script>
 </head>
+
 <body class="citybackground">
 <?php 
   include 'login.php';
   //validatetoken();
+  //$username="scarpen3";
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
@@ -30,7 +31,7 @@
    
     <form action="main.php" method="post">
      
-        <label>What would you like to do?</label>
+      <label>What would you like to do?</label>
       <select name="activity" id="activity">
         <option>Go to the BOG</option>
         <option>Eat at the Commons</option>
@@ -40,8 +41,8 @@
       </select>
       
       <label>Minutes you're available (max 120)</label>
-        <input id="availability" type="number" name="availablefor" step="5" min="0" max="120" value="0">
-        <input type="submit" value="Update Status" name="submitbutton">
+      <input id="availability" type="number" name="availablefor" step="5" min="0" max="120" value="0">
+      <input type="submit" value="Update Status" name="submitbutton">
     </form>
  
 
