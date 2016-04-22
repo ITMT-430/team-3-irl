@@ -13,6 +13,7 @@
     $clienttoken = hash('ripemd160', $servertoken);
     $experation = (time()+3600); //expire in 1 hour
     setcookie("rltoken", $clienttoken, $experation);
+    setcookie("rleaster", $username, $experation);
     //Please store $servertoken in the database token field.
     //Please store $experation in the database experation field.
     echo $servertoken . "<br>";
@@ -29,7 +30,7 @@
   //Use the function below to see if user is already authenticated.  Will return true if they are or false if they aren't.
   function validatetoken() {
   include 'connect.php';
-  $username=phpCAS::getUser();
+  $username=($_COOKIE["rleaster"]);
   //$username='jpatel74';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
