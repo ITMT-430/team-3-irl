@@ -16,19 +16,19 @@
           $expiration = $row["available"];
           echo "<div class='user-entry'> 
             <div class='user-name'>" 
-            .$row["name"] .
+            . $row["name"] .
            "</div><div class='time'> Available for: " 
             . round(($expiration - (time()/60)), 2) . 
             " minutes</div>  <div class='activity'>Wants to: " 
             . $row["activity"]. 
             "</div></div>
-            <div class='contactinfo hidden'><div class='contactinfoitem'>P: "
-            . $row["phone"] .
-            "</div><div class='contactinfoitem'>F: "
-            . $row["facebook"] .
-            "</div><div class='contactinfoitem'>T: "
-            . $row["twitter"] .
-            "</div></div>";
+            <div class='contactinfo hidden'><div class='contactinfoitem'>
+            <img src='images/phone.png'> " . $row["phone"] .
+            "</div><div class='contactinfoitem'><a href='" . $row["facebook"] .
+            "'><img src='images/facebook.png'></a>
+            </div><div class='contactinfoitem'><a href='" . $row["twitter"] .
+            "'><img src='images/twitter.png'></a>
+            </div></div>";
         }
     }
   else {
