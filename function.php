@@ -6,9 +6,8 @@
   $clienttoken = "";
   //The function below should be run once we have authenticated the user via CAS.
   function generatetoken() {
-    //$username=phpCAS::getUser();
-    include 'connect.php';
-    $username ='jpatel74';
+    $username=phpCAS::getUser();
+    //$username ='jpatel74';
     $raw = rand();
     $servertoken = hash('sha256', $raw);
     $clienttoken = hash('ripemd160', $servertoken);
@@ -30,8 +29,8 @@
   //Use the function below to see if user is already authenticated.  Will return true if they are or false if they aren't.
   function validatetoken() {
   include 'connect.php';
-  //$username=phpCAS::getUser();
-  $username='jpatel74';
+  $username=phpCAS::getUser();
+  //$username='jpatel74';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
   $row = $result->fetch_assoc();
