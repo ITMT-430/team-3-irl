@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <title>iRL Login</title>
     <link rel="stylesheet" type="text/css" href="css/screen.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, scale-to-fit=no">
   </head>
   <body class="citybackground">
   <?php 
 
-  include "login.php";
-  include "connect.php";
-  include "nav.php";
+  //include "login.php";"
+    $username="scarpen3";
+    include "connect.php";
+    include "nav.php";
 
-  $sql = "SELECT * FROM user_table WHERE username='$username'";
-  $result = $mysqli->query($sql);
-  $row = $result->fetch_assoc();
-	?>
+    $sql = "SELECT * FROM user_table WHERE username='$username'";
+    $result = $mysqli->query($sql);
+    $row = $result->fetch_assoc();
+  ?>
 
 <div class="login">
   <div class="header">
@@ -34,9 +36,56 @@
         <label for="email">Email</label>
         <input id="email" type="text" name="email" value="<?php echo $row['email']?>">
         <input type="submit" value="Save Settings" name="submitbutton">
+        <?php
+         $sql = "SELECT * FROM admins WHERE username='$username'";
+        $result = $mysqli->query($sql);
+        $num = $result->num_rows;
+               
+        if($num == '0'){
+          echo "DIDNT WORK";
+        } 
+        else {
+          $sql = "SELECT username FROM user_table";
+          $result = $mysqli->query($sql);
+          echo "<select id='adminselect'>";
+          
+          while($row = $result->fetch_assoc()) {
+            echo "<option>" . $row["username"] . "</option>";
+          }
+          
+          echo "<input type='submit' value='Make Admin' name='adminsubmitbutton'>";
+        }
+         
+               
+          if (isset($_POST['adminsubmitbutton'])){
+            $adminselected = $_POST['adminselect'];
+          
+             $sql = "INSERT INTO admins user_table SET
+                name='$name',
+                username='$username'
+                WHERE username='$username'";
+
+                $result = $mysqli->query($sql);
+
+                if ($mysqli->error) {
+                  echo $mysqli->error;
+                  $message="Unable to update!";		      
+                  echo "<script type='text/javascript'>alert('$message');</script>";
+                } else {
+                  $message="Update Succesful!";
+                  echo "<script type='text/javascript'>alert('$message');</script>";
+                  header("Refresh:0; url=main.php");
+                }
+              }
+        
+        ?>
       </form>
       </div> 
-      <?php
+      
+        <?php
+               
+       
+               
       if (isset($_POST['submitbutton'])){
           $name = $_POST['name'];
           $phone = $_POST['phone'];
@@ -64,7 +113,10 @@
               echo "<script type='text/javascript'>alert('$message');</script>";
               header("Refresh:0; url=main.php");
             }
-          $mysqli->close();
+          
+          
+        
+        $mysqli->close();
 
       }?>
 

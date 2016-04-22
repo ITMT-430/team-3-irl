@@ -70,7 +70,6 @@ a  {
   text-align: center;
   max-width: 40em;
   color: white;
-  padding: 1.5em;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
 }
@@ -85,30 +84,31 @@ img {
   font-family: sans-serif;
   font-weight: bold;
   background-color: rgba(76,147,230,.5);
-	border: 1px solid ghostwhite;
   color: white;
   padding: 1em;
-  margin: .5em 0 0em 0;
+  margin-top: .5em;
 }
 
 .user-entry .user-name {
   font-size: 1.5em;
-	margin-bottom: 1em;
+  margin-bottom: .5em;
 }
 
 .user-entry .time {
-  color: black;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  color: lightgray;
 }
 
 .user-entry .activity {
   margin-bottom: 1em;
+  color: greenyellow;
 }
 
 .contactinfo {
-	background-color: rgba(10,200,10, .5);
-	padding: 1em;
-	display: block;
+  background-color: rgba(10,200,10, .5);
+  padding: 1em;
+  display: block;
+  margin: 0em 0em .5em 0em;
 }
 
 .contactinfoitem {
@@ -184,8 +184,8 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-		background: linear-gradient(to bottom, rgba(141,182,201,1) 0%, rgba(96,134,195,0.89) 50%, rgba(78,118,193,0.89) 51%, rgba(73,119,193,0.78) 100%);
-		text-align: right;
+    background: linear-gradient(to bottom, rgba(141,182,201,1) 0%, rgba(96,134,195,0.89) 50%, rgba(78,118,193,0.89) 51%, rgba(73,119,193,0.78) 100%);
+    text-align: right;
     text-decoration: none;
 }
 
@@ -211,4 +211,17 @@ li a:hover {
 p{
   color:black;
   text-align: center;
+}
+
+/**************MEDIA QUERIES**********************/
+@media screen and (min-width: 37.5em){
+  
+  #appwrapper {  
+    padding: 1.5em;
+  }
+  
+  .user-entry {
+    margin: .5em 0 0em 0;
+    border: 1px solid ghostwhite;
+  }
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>iRL Login</title>
     <link rel="stylesheet" type="text/css" href="css/screen.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, scale-to-fit=no">
   </head>
   <body class="citybackground">
   <?php 
@@ -23,18 +24,16 @@
 		<input id="firstname" type="text" name="firstname" placeholder="John">
 		<label for="lastname">Last Name</label>
 		<input id="lastname" type="text" name="lastname" placeholder="Doe">
-
-		
 		    <label for="phone">Phone</label>
 		    <input id="phone" type="text" name="phone" placeholder="(123) 456-7899"> 
 		    <label for="facebook">Facebook</label>
-				<input id="facebook" type="text" name="facebook" placeholder="https://facebook.com/superdude"> 
-				<label for="twitter">Twitter</label>
-				<input id="twitter" type="text" name="twitter" placeholder="https://twitter.com/superdude">
-				<label for="email">Email</label>
-				<input id="email" type="text" name="email" placeholder="you@something.com">
-	
-				<input type="submit" value="Create Account" name="submitbutton">
+            <input id="facebook" type="text" name="facebook" placeholder="https://facebook.com/superdude"> 
+            <label for="twitter">Twitter</label>
+            <input id="twitter" type="text" name="twitter" placeholder="https://twitter.com/superdude">
+            <label for="email">Email</label>
+            <input id="email" type="text" name="email" placeholder="you@something.com">
+
+            <input type="submit" value="Create Account" name="submitbutton">
 		</form>
 		</div> 
 		<?php
