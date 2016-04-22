@@ -41,18 +41,14 @@
         <option>Go to bar</option>
       </select>
       
-      <label>Available for (minutes)</label>
+      <label>Minutes you're available (max 120)</label>
         <input id="availability" type="number" name="availablefor" step="5" min="0" max="120" value="0">
         <input type="submit" value="Update Status" name="submitbutton">
     </form>
  
 
 <h1>People available</h1>
-
-<?php
-  $url1=$_SERVER['REQUEST_URI'];
-  header("Refresh: 10; URL=$url1");
-?>
+<div id="peopleholder"></div>
 
 <?php
 if (isset($_POST['submitbutton'])){
@@ -79,12 +75,12 @@ if (isset($_POST['submitbutton'])){
   
   //Take in activity that user wants
   $activity =  $_POST['activity'];
-
+  
 
   $sql = "UPDATE user_table SET
       available='$expiration',
       activity='$activity'
-      WHERE username='scarpen3'
+      WHERE username='$username'
       ";
 
   $result = $mysqli->query($sql);
@@ -96,40 +92,7 @@ if (isset($_POST['submitbutton'])){
 
 }
   
-//**********************************************
-//
-// DISPLAY ROWS FROM DATABASE
-//
-//**********************************************
-    date_default_timezone_set('CST6CDT');
-  
-    $sql = "SELECT * FROM user_table WHERE available > " .(time()/60);
-    $result = $mysqli->query($sql);
 
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-          $expiration = $row["available"];
-          echo "<div class='user-entry'> 
-            <div class='user-name'>" 
-            .$row["name"] .
-           "</div><div class='time'> Available for: " 
-            . round(($expiration - (time()/60)), 2) . 
-            " minutes</div>  <div class='activity'>Wants to: " 
-            . $row["activity"]. 
-            "</div></div>
-            <div class='contactinfo hidden'><div class='contactinfoitem'>P: "
-            . $row["phone"] .
-            "</div><div class='contactinfoitem'>F: "
-            . $row["facebook"] .
-            "</div><div class='contactinfoitem'>T: "
-            . $row["twitter"] .
-            "</div></div>";
-        }
-    }
-  else {
-    echo "0 results";
-  }
  
 
 
@@ -138,8 +101,37 @@ if (isset($_POST['submitbutton'])){
 $mysqli->close();
 
 ?>
+   
+<script>
+//Update database via ajax on interval
+  
+$(document).ready(function(){
+  
+  $.ajax({
+      url: "displaydatabase.php",
+      })
+    .done(function(data){
+      $('#peopleholder').html(data);
+    })
+  
+  
+//load every 5 seconds
+  setInterval( function(){
     
-  </div>
+    $.ajax({
+      url: "displaydatabase.php",
+      })
+    .done(function(data){
+      $('#peopleholder').html(data);
+    })
+    
+  }, 5000);
+
+})
+
+</script>
+    
+</div>
   
 </body>
 </html>
