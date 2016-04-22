@@ -8,12 +8,14 @@
 </head>
 
 <body class="citybackground">
-<?php 
+<?php
+  include 'function.php';
   include 'login.php';
   //validatetoken();
   //$username="scarpen3";
   include 'nav.php';
   include 'connect.php';
+  //$username='jpatel74';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
   $num= $result->num_rows;
