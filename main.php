@@ -9,11 +9,11 @@
 </head>
 <body class="citybackground">
 <?php 
-  include 'function.php';
+  //include 'function.php';
   include 'login.php';
   include 'nav.php';
   include 'connect.php';
-  validatetoken();
+  //validatetoken();
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
   $num= $result->num_rows;

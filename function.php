@@ -8,7 +8,7 @@
   function generatetoken() {
     //$username=phpCAS::getUser();
     include 'connect.php';
-    $username='jpatel74';
+    $username ='jpatel74';
     $raw = "";
     $servertoken = hash('sha256', $raw);
     $clienttoken = hash('ripemd160', $servertoken);
