@@ -8,12 +8,12 @@
 	<script src="javascript.js"></script>
 </head>
 <body class="citybackground">
-<?php 
-  //include 'function.php';
+<?php
+  include 'function.php';
   include 'login.php';
   include 'nav.php';
   include 'connect.php';
-  //validatetoken();
+  //$username='jpatel74';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
   $num= $result->num_rows;

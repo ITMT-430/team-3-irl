@@ -9,13 +9,14 @@
     //$username=phpCAS::getUser();
     include 'connect.php';
     $username ='jpatel74';
-    $raw = "";
+    $raw = rand();
     $servertoken = hash('sha256', $raw);
     $clienttoken = hash('ripemd160', $servertoken);
     $experation = (time()+3600); //expire in 1 hour
     setcookie("rltoken", $clienttoken, $experation);
     //Please store $servertoken in the database token field.
     //Please store $experation in the database experation field.
+    echo $servertoken . "<br>";
     $sql = "UPDATE user_table SET
             token='$servertoken',
             expire='$experation'
@@ -38,16 +39,19 @@
     $experation = $row["expire"];
     $servertoken = $row["token"];
     //Don't touch below.
-    $authed = false;
+    $authed = "false";
     if (!($experation < time())) {
       if(isset($_COOKIE["rltoken"])) {
         $clienttoken = $_COOKIE["rltoken"];
-        if ($clienttoken == hash('ripemd160', $servertoken)) {
-          $authed = true;
-        };
+        if ($clienttoken ==  hash('ripemd160', $servertoken)) {
+          $authed = "true";
+        }
       }
     }
-    echo time();
+    //$clienttoken = $_COOKIE["rltoken"];
+    //echo hash('ripemd160', $servertoken). " ";
+    echo hash('ripemd160', $servertoken)."<br>";
+    echo $clienttoken;
     echo $authed;
   }
 ?>
