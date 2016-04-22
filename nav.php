@@ -9,7 +9,7 @@
 	<ul>
 		<li><a href="main.php">iRL</a></li>
 		<li><a href="settings.php">Settings</a></li>
-		<li><a href="logout.php">Logout <?php echo $username ?></a></li>
+		<li><a href="logout.php">Logout <?php echo phpCAS::getUser() ?></a></li>
 	</ul>
 </nav>
 <html>

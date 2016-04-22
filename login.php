@@ -1,4 +1,7 @@
 <?php
+//include functions 
+include 'function.php';
+
 // Load the settings from the central config file
 require_once '../includes/CAS/config.php';
 
@@ -14,8 +17,13 @@ phpCAS::setCasServerCACert($cas_server_ca_cert_path);
 
 // force CAS authentication
 phpCAS::forceAuthentication();
-//$username=phpCAS::getUser();
-$username="jpatel74";
+
+$username=phpCAS::getUser();
+
+//Generate a token 
+generatetoken();
+
+//$username="jpatel74";
 // at this step, the user has been authenticated by the CAS server
 // and the user's login name can be read with phpCAS::getUser().
 
