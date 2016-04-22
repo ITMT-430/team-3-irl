@@ -75,6 +75,10 @@ a  {
   border-bottom-right-radius: 1em;
 }
 
+img {
+  vertical-align: middle;
+}
+
 /*********LIST OF PEOPLE AVAILABLE******/
 
 .user-entry {
@@ -94,7 +98,7 @@ a  {
 
 .user-entry .time {
   color: black;
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .user-entry .activity {
@@ -108,7 +112,7 @@ a  {
 }
 
 .contactinfoitem {
-	display: inline;
+	display: inline-block;
 	margin: 0 1em;
 }
 
