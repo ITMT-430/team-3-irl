@@ -9,7 +9,7 @@
 </head>
 <body class="citybackground">
 <?php 
-  require_once 'login.php';
+  include 'login.php';
   //validatetoken();
   include 'nav.php';
   include 'connect.php';
@@ -24,8 +24,8 @@
 
 <div id="appwrapper">
    <div class="header">
-				<p class="iit">Illinois Tech</p>
-				iRL
+    <p class="iit">Illinois Tech</p>
+    iRL
   </div>
    
     <form action="main.php" method="post">
