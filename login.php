@@ -14,7 +14,10 @@ include 'function.php';
 	// on the CAS server and uncomment the line below
 	phpCAS::setCasServerCACert($cas_server_ca_cert_path);
 
-if((isset($_COOKIE["rltoken"]))) { 
+	// force CAS authentication
+		phpCAS::forceAuthentication();
+
+/*if((isset($_COOKIE["rltoken"]))) { 
 	if (validatetoken() == "false") {
 
 
@@ -43,7 +46,7 @@ if((isset($_COOKIE["rltoken"]))) {
 // and the user's login name can be read with phpCAS::getUser().
 
 // for this test, simply print that the authentication was successfull
-//generatetoken();
+//generatetoken();*/
 ?>
 <!--<html>
   <head>
