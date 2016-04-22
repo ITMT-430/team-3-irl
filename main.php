@@ -11,10 +11,8 @@
 <?php 
   include 'function.php';
   include 'login.php';
-  validatetoken();
   include 'nav.php';
   include 'connect.php';
-  generatetoken();
   validatetoken();
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);

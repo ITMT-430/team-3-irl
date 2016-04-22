@@ -7,7 +7,7 @@
   //The function below should be run once we have authenticated the user via CAS.
   function generatetoken() {
     //$username=phpCAS::getUser();
-      include 'connect.php';
+    include 'connect.php';
     $username='jpatel74';
     $raw = "";
     $servertoken = hash('sha256', $raw);
