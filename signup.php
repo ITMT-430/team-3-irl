@@ -7,7 +7,7 @@
   </head>
   <body class="citybackground">
   <?php 
-  include "login.php";
+  //include "login.php";
   include "connect.php";
 		?>
 
