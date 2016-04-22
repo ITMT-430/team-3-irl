@@ -1,7 +1,6 @@
 <?php
 include 'function.php';
-if((isset($_COOKIE["rltoken"]))) { 
-	if (validatetoken() == "false") {
+
 		// Load the settings from the central config file
 	require_once '../includes/CAS/config.php';
 
@@ -15,24 +14,19 @@ if((isset($_COOKIE["rltoken"]))) {
 	// on the CAS server and uncomment the line below
 	phpCAS::setCasServerCACert($cas_server_ca_cert_path);
 
+if((isset($_COOKIE["rltoken"]))) { 
+	if (validatetoken() == "false") {
+
+
 	// force CAS authentication
 	phpCAS::forceAuthentication();
 	$username = phpCAS::getUser();
+	$experation = (time()+7200); //expire in 2 hours
+	setcookie("rleaster", $username, $experation);
 	if (!($username == null)) {
 		generatetoken();
 		}
-}else{
-		require_once '../includes/CAS/config.php';
-
-		// Load the CAS lib
-		require_once '../includes/CAS.php';
-
-		// Initialize phpCAS
-		phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
-
-		// For production use set the CA certificate that is the issuer of the cert
-		// on the CAS server and uncomment the line below
-		phpCAS::setCasServerCACert($cas_server_ca_cert_path);
+}}else{
 
 		// force CAS authentication
 		phpCAS::forceAuthentication();
@@ -41,7 +35,7 @@ if((isset($_COOKIE["rltoken"]))) {
 			generatetoken();
 			}
 
-} }
+}
 //include functions 
 
 //$username="jpatel74";
