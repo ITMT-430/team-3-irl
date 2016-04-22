@@ -9,7 +9,7 @@
 </head>
 <body class="citybackground">
 <?php 
-  //require_once 'login.php';
+  require_once 'login.php';
   //validatetoken();
   include 'nav.php';
   include 'connect.php';
