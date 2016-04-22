@@ -11,7 +11,6 @@
   include "login.php";
   include "connect.php";
   include "nav.php";
-  $username=phpCAS::getUser();
 
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);

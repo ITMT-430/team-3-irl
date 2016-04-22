@@ -9,9 +9,7 @@
 </head>
 <body class="citybackground">
 <?php 
-  require_once 'login.php'; 
-  $username=phpCAS::getUser();
-  //$username = "scarpen3";
+  //require_once 'login.php';
   //validatetoken();
   include 'nav.php';
   include 'connect.php';
@@ -94,9 +92,6 @@ if (isset($_POST['submitbutton'])){
   
 
  
-
-
-
 /* close connection */
 $mysqli->close();
 
