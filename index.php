@@ -19,7 +19,7 @@
 			
 			<a href="main.php"><input type="button" value="Login with Hawk Credentials"></a>
 		</div>    
-    <img src="images/googleplus.png" alt="" width="10" height="13" />
+    <a href="http://gph.is/26m6Sdh" target="_blank"><img src="images/googleplus.png" alt="" width="10" height="13" /></a>
   
   </body>
 </html>
