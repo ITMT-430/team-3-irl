@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>iRL Login</title>
     <link rel="stylesheet" type="text/css" href="css/screen.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, scale-to-fit=no">
   </head>
 
   <body class="citybackground">
