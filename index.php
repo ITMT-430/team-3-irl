@@ -8,7 +8,7 @@
   </head>
 
   <body class="citybackground">
-
+  <img src="images/googleplus.png" alt="" width="10" height="13" />
     
 		
 		<div class="login">
