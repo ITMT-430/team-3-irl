@@ -8,7 +8,7 @@
   </head>
 
   <body class="citybackground">
-  <img src="images/googleplus.png" alt="" width="10" height="13" />
+  
     
 		
 		<div class="login">
@@ -19,7 +19,7 @@
 			
 			<a href="main.php"><input type="button" value="Login with Hawk Credentials"></a>
 		</div>    
-    
+    <img src="images/googleplus.png" alt="" width="10" height="13" />
   
   </body>
 </html>
