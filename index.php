@@ -32,7 +32,7 @@
     if ($result->num_rows > 0){
     	//output the data
     	while($num = $result->fetch_assoc()){
-    		echo"There are: " .$num ["available"]. "<br>";
+    		echo "There are " .$num ["available"]. " people free. Who will you meet?";
     	}
     }
 
