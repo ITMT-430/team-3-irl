@@ -18,31 +18,32 @@
 			</div>
 			
 			<a href="main.php"><input type="button" value="Login with Hawk Credentials"></a>
-		</div>    
-    <a href="http://gph.is/26m6Sdh" target="_blank"><img src="images/googleplus.png" alt="" width="10" height="13" /></a>
-
-   <?php
+			
+			<?php
    include 'connect.php';
 
    //Display Number of users available
-   $sql = "SELECT * FROM user_table WHERE available > " .(time()/60);
+   $sql = "SELECT * FROM user_table WHERE available > " . (time()/60);
    $result = $mysqli->query($sql);
    $num = $result->num_rows;
 
     if ($result->num_rows > 0){
     	//output the data
     	while($num = $result->fetch_assoc()){
-    		echo "There are " .$num ["available"]. " people free. Who will you meet?";
+    		echo "<h2>There are " . $num . " people free. Who will you meet?</h2>";
     	}
     }
 
   else{
-  	echo "No one is Available";
   }
 
   $mysqli->close();
 	
    ?>
+		</div>    
+    <a href="http://gph.is/26m6Sdh" target="_blank"><img src="images/googleplus.png" alt="" width="10" height="13" /></a>
+
+   
   
   </body>
 </html>
