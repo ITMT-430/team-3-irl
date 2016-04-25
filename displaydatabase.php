@@ -9,7 +9,12 @@
   
     $sql = "SELECT * FROM user_table WHERE available > " .(time()/60);
     $result = $mysqli->query($sql);
+				$num = $result->num_rows;
 
+				echo "<h1>People available (";
+					printf("%d", $num);
+				echo ")</h1>";
+				
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
