@@ -36,56 +36,147 @@
         <label for="email">Email</label>
         <input id="email" type="text" name="email" value="<?php echo $row['email']?>">
         <input type="submit" value="Save Settings" name="submitbutton">
+					</form> 
+        
         <?php
-         $sql = "SELECT * FROM admins WHERE username='$username'";
+        
+								$sql = "SELECT * FROM admins WHERE username='$username'";
         $result = $mysqli->query($sql);
         $num = $result->num_rows;
                
         if($num == '0'){
-          echo "DIDNT WORK";
+          //the logged in user isn't in the admin database
         } 
         else {
-          $sql = "SELECT username FROM user_table";
+										//user is an admin
+									
+										echo "<h1>Administrator Tools</h1>";
+									
+										//***********Make users into admins
+										$sql = "SELECT username FROM user_table";
           $result = $mysqli->query($sql);
-          echo "<select id='adminselect'>";
+									
+										echo "<form method='post'>";
+          echo "<select name='adminselect'>";
           
           while($row = $result->fetch_assoc()) {
             echo "<option>" . $row["username"] . "</option>";
           }
           
           echo "<input type='submit' value='Make Admin' name='adminsubmitbutton'>";
-        }
-         
-               
-          if (isset($_POST['adminsubmitbutton'])){
-            $adminselected = $_POST['adminselect'];
+										echo "</form>";
+									
+										//***********Take admin privileges away from an admin
+										$sql = "SELECT username FROM admins";
+          $result = $mysqli->query($sql);
+									
+										echo "<form method='post'>";
+          echo "<select name='deleteadminselect'>";
           
-             $sql = "INSERT INTO admins user_table SET
-                name='$name',
-                username='$username'
-                WHERE username='$username'";
+          while($row = $result->fetch_assoc()) {
+            echo "<option>" . $row["username"] . "</option>";
+          }
+          
+          echo "<input type='submit' value='Remove Admin' name='deleteadminsubmitbutton'>";
+										echo "</form>";
+											
+										//********************Reset a users time
+										$sql = "SELECT username FROM user_table";
+          $result = $mysqli->query($sql);
+									
+										echo "<form method='post'>";
+          echo "<select name='resettimeselect'>";
+          
+          while($row = $result->fetch_assoc()) {
+            echo "<option>" . $row["username"] . "</option>";
+          }
+          
+          echo "<input type='submit' value='Set time to Zero' name='resettimesubmitbutton'>";
+										echo "</form>";
+        }
+															
+															
+															
+															
+															
+         
+  //submit button actions          
+          if (isset($_POST['adminsubmitbutton'])){
+											
+            	$adminselected = $_POST['adminselect'];
+													$sql = "SELECT * FROM admins WHERE username='$adminselected'";
+													$result = $mysqli->query($sql);
+													$num = $result->num_rows;
+               
+														if($num > 0){
+																//the admin is already an admin
+														} 
+													else {
 
-                $result = $mysqli->query($sql);
+														$sql = "INSERT INTO admins VALUES('admin', '$adminselected')";
 
-                if ($mysqli->error) {
-                  echo $mysqli->error;
-                  $message="Unable to update!";		      
-                  echo "<script type='text/javascript'>alert('$message');</script>";
-                } else {
-                  $message="Update Succesful!";
-                  echo "<script type='text/javascript'>alert('$message');</script>";
-                  header("Refresh:0; url=main.php");
-                }
-              }
+														$result = $mysqli->query($sql);
+
+														if ($mysqli->error) {
+																echo $mysqli->error;
+																$message="Unable to update!";		      
+																echo "<script type='text/javascript'>alert('$message');</script>";
+														} else {
+																$message="Update Succesful!";
+																echo "<script type='text/javascript'>alert('$message');</script>";
+																header("Refresh:0; url=settings.php");
+														}
+													}
+											}
+											
+										if (isset($_POST['deleteadminsubmitbutton'])){
+            $deleteadminselected = $_POST['deleteadminselect'];
+          
+												$sql = "DELETE FROM admins
+												WHERE username = '$deleteadminselected'";
+
+												$result = $mysqli->query($sql);
+
+												if ($mysqli->error) {
+														echo $mysqli->error;
+														$message="Unable to update!";		      
+														echo "<script type='text/javascript'>alert('$message');</script>";
+												} else {
+														$message="Update Succesful!";
+														echo "<script type='text/javascript'>alert('$message');</script>";
+														header("Refresh:0; url=settings.php");
+												}
+										}
+										
+											if (isset($_POST['resettimesubmitbutton'])){
+            $resettimeselected = $_POST['resettimeselect'];
+          
+													$sql = "UPDATE user_table SET
+																			available= " . (time()/60). 
+																			"WHERE username='$resettimeselected'";
+																			
+
+												$result = $mysqli->query($sql);
+
+												if ($mysqli->error) {
+														echo $mysqli->error;
+														$message="Unable to update!";		      
+														echo "<script type='text/javascript'>alert('$message');</script>";
+												} else {
+														$message="Update Succesful!";
+														echo "<script type='text/javascript'>alert('$message');</script>";
+														header("Refresh:0; url=settings.php");
+												}
+										}
         
         ?>
-      </form>
+ 
       </div> 
       
-        <?php
+<?php
                
        
-               
+//normal users submit button
       if (isset($_POST['submitbutton'])){
           $name = $_POST['name'];
           $phone = $_POST['phone'];
