@@ -27,11 +27,12 @@
    //Display Number of users available
    $sql = "SELECT * FROM user_table WHERE available > " .(time()/60);
    $result = $mysqli->query($sql);
+   $num = $result->num_rows;
 
     if ($result->num_rows > 0){
     	//output the data
-    	while($row = $result->fetch_assoc()){
-    		echo"There are: " .$row ["available"]. "<br>";
+    	while($num = $result->fetch_assoc()){
+    		echo"There are: " .$num ["available"]. "<br>";
     	}
     }
 
