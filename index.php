@@ -31,7 +31,7 @@
     if ($result->num_rows > 0){
     	//output the data
     	while($row = $result->fetch_assoc()){
-    		echo"There are $row available";
+    		echo"There are: " .$row ["available"]. "<br>";
     	}
     }
 
