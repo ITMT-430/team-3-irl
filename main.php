@@ -10,18 +10,18 @@
 
 <body class="citybackground">
 <?php
-  //include 'login.php';
+  include 'login.php';
   //validatetoken();
-  $username="scarpen3";
+  //$username="scarpen3";
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
   $num= $result->num_rows;
-  /*if($num == '0'){
+  if($num == '0'){
       header("Location: signup.php");
   } else {
-  }*/
+  }
 ?>
 
 <div id="appwrapper">
