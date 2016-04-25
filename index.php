@@ -29,9 +29,7 @@
 
     if ($result->num_rows > 0){
     	//output the data
-    	while($num = $result->fetch_assoc()){
     		printf("<h2>There are %d people free. Who will you meet?</h2>", $num);
-    	}
     }
 
   else{
@@ -42,7 +40,6 @@
    ?>
 		</div>    
     <a href="http://gph.is/26m6Sdh" target="_blank"><img src="images/googleplus.png" alt="" width="10" height="13" /></a>
-
    
   
   </body>
