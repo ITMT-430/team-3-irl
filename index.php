@@ -8,18 +8,41 @@
   </head>
 
   <body class="citybackground">
-
+  
     
 		
 		<div class="login">
 			<div class="header">
-				<p class="iit">Illinois Tech</p>
+				<p class="iit">Welcome to Illinois Tech</p>
 				iRL
 			</div>
 			
 			<a href="main.php"><input type="button" value="Login with Hawk Credentials"></a>
 		</div>    
-    
+    <a href="http://gph.is/26m6Sdh" target="_blank"><img src="images/googleplus.png" alt="" width="10" height="13" /></a>
+
+   <?php
+   include 'connect.php';
+
+   //Display Number of users available
+   $sql = "SELECT * FROM user_table WHERE available > " .(time()/60);
+   $result = $mysqli->query($sql);
+   $num = $result->num_rows;
+
+    if ($result->num_rows > 0){
+    	//output the data
+    	while($num = $result->fetch_assoc()){
+    		echo"There are: " .$num ["available"]. "<br>";
+    	}
+    }
+
+  else{
+  	echo "No one is Available";
+  }
+
+  $mysqli->close();
+	
+   ?>
   
   </body>
 </html>

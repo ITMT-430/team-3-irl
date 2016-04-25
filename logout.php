@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 
+
 <?php//LOGOUT OF ALL SESSIONS::
     phpCAS::logout();
 echo "Thanks and have a good day!!";
 
 ?>
 
-<body>
+<body class="citybackground">
 	<h1>Thank you and Have a wonderful Day!!</h1>
 </body>
 
