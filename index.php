@@ -30,7 +30,7 @@
     if ($result->num_rows > 0){
     	//output the data
     	while($num = $result->fetch_assoc()){
-    		echo "<h2>There are " . $num . " people free. Who will you meet?</h2>";
+    		printf("<h2>There are %d people free. Who will you meet?</h2>", $num);
     	}
     }
 
