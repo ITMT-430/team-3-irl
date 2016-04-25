@@ -10,18 +10,18 @@
 
 <body class="citybackground">
 <?php
-  include 'login.php';
+  //include 'login.php';
   //validatetoken();
-  //$username="scarpen3";
+  $username="scarpen3";
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
   $num= $result->num_rows;
-  if($num == '0'){
+  /*if($num == '0'){
       header("Location: signup.php");
   } else {
-  }
+  }*/
 ?>
 
 <div id="appwrapper">
@@ -45,9 +45,7 @@
       <input id="availability" type="number" name="availablefor" step="5" min="0" max="120" value="0">
       <input type="submit" value="Update Status" name="submitbutton">
     </form>
- 
-
-<h1>People available</h1>
+    
 <div id="peopleholder"></div>
 
 <?php
