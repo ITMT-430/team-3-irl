@@ -9,7 +9,7 @@
   <body class="citybackground">
   <?php 
 
-    //include "login.php";
+    include "login.php";
     //$username="scarpen3";
     include "connect.php";
     include "nav.php";
