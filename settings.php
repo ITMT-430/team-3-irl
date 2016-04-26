@@ -9,7 +9,7 @@
   <body class="citybackground">
   <?php 
 
-    include "login.php";
+    //include "login.php";
     //$username="scarpen3";
     include "connect.php";
     include "nav.php";
@@ -19,11 +19,10 @@
     $row = $result->fetch_assoc();
   ?>
 
-<div class="login">
+<div id="appwrapper">
   <div class="header">
-      <p class="iit">Illinois Tech</p>
-      iRL
-  </div>
+    <img src="images/logo.png" />
+ 	 </div>
       <form method="post">
         <label for="name">Name</label>
         <input id="name" type="text" name="name" value="<?php echo $row['name']?>">
@@ -93,11 +92,7 @@
           
           echo "<input type='submit' value='Set time to Zero' name='resettimesubmitbutton'>";
 										echo "</form>";
-        }
-															
-															
-															
-															
+        }		
 															
          
   //submit button actions          

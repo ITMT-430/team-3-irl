@@ -11,9 +11,8 @@
 		
 		<div class="login">
 			<div class="header">
-				<p class="iit">Illinois Tech</p>
-				iRL
-			</div>
+    <img src="images/logo.png" />
+ 	 </div>
 			
 			<a href="main.php"><input type="button" value="Login with Hawk Credentials"></a>
 			
@@ -25,13 +24,10 @@
    $result = $mysqli->query($sql);
    $num = $result->num_rows;
 
-    //if ($result->num_rows > 0){
+    if ($result->num_rows > 0){
     	//output the data
     		printf("<h2>There are %d people free iRL</h2>", $num);
-    //}
-
-  //else{
-  //}
+    }
 
   $mysqli->close();
 	
