@@ -163,19 +163,18 @@ img {
 	margin-bottom: 1em;
 }
 
-
 .login input[type="button"]{
-    margin: 1em auto;
+ margin: 1em auto;
 	color: white;
-	background-color: transparent;
+	background: linear-gradient(to bottom, rgba(146,206,161,.8) 0%,rgba(80,220,108,.5) 50%,rgba(52,220,85,.5) 51%,rgba(98,240,129,.4) 100%);
 	padding: 1em 5em;
 	display: block;
 }
 
 label {
-  font-size: 1.2em;
-  display: block;
-  margin-top: 1em;
+	font-size: 1.2em;
+	display: block;
+	margin-top: 1em;
 	color: white;
 	text-align: center;
 }
