@@ -18,7 +18,8 @@
 			
 		<?php
    include 'connect.php';
-			include 'login.php';
+			// Load the CAS lib
+			require_once '../includes/CAS.php';
 			
 			
 			$now = (time()/60);
