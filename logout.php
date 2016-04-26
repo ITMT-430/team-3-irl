@@ -39,5 +39,7 @@
 				
 				phpCAS::logout();
    
+			?>
+			
   </body>
 </html>
