@@ -8,12 +8,10 @@
   </head>
 
   <body class="citybackground">
-  
-    
 		
 		<div class="login">
 			<div class="header">
-				<p class="iit">Welcome to Illinois Tech</p>
+				<p class="iit">Illinois Tech</p>
 				iRL
 			</div>
 			
@@ -27,13 +25,13 @@
    $result = $mysqli->query($sql);
    $num = $result->num_rows;
 
-    if ($result->num_rows > 0){
+    //if ($result->num_rows > 0){
     	//output the data
-    		printf("<h2>There are %d people free. Who will you meet?</h2>", $num);
-    }
+    		printf("<h2>There are %d people free iRL</h2>", $num);
+    //}
 
-  else{
-  }
+  //else{
+  //}
 
   $mysqli->close();
 	
