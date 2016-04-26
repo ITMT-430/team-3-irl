@@ -36,7 +36,7 @@
 			
 				$mysqli->close();
 				
-				phpCAS::logout();
+				phpCAS::logoutwithRedirectService('main.php');
 		?>
    
   </body>
