@@ -57,7 +57,7 @@ h1 {
     color: ghostwhite;
     text-align: center;
     font-size: 3em;
-    margin-top: 1em;
+    margin: 1em 0 .4em 0;
 }
 
 h2 {
@@ -84,6 +84,10 @@ fieldset {
   padding: 1.5em 0em;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
+}
+
+.header {
+	text-align: center;
 }
 
 .citybackground{
@@ -138,13 +142,6 @@ img {
 }
 
 /************************************FOR LOGIN PAGE*******************************/
-.header{
-    text-align: center;
-    max-width: 10em;
-	margin: 0 auto;
-	color: white;
-	font-size: 5em;
-}
 
 .login{
 	margin: 0 auto;
@@ -155,10 +152,9 @@ img {
 	border-bottom-right-radius: 1em;
 }
 
-.login input {
-	color: white;
-	background-color: transparent;
-	padding: 1em;
+input {
+	color: black;
+	background-color: rgba(255,255,255, .9);
 	margin-bottom: 1em;
 }
 
