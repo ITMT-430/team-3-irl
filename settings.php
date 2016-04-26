@@ -49,7 +49,7 @@
         else {
 										//user is an admin
 									
-										echo "<h1>Administrator Tools</h1>";
+										echo "<div id='admintools'><h1>Administrator Tools</h1>";
 									
 										//***********Make users into admins
 										$sql = "SELECT username FROM user_table";
@@ -91,7 +91,7 @@
           }
           
           echo "<input type='submit' value='Set time to Zero' name='resettimesubmitbutton'>";
-										echo "</form>";
+										echo "</form></div>";
         }		
 															
          
