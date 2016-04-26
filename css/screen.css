@@ -95,6 +95,7 @@ img {
   color: white;
   padding: 1em;
   margin-top: .5em;
+		animation: fadein ease-in 1s;
 }
 
 .user-entry .user-name {
@@ -219,6 +220,16 @@ p{
   color:black;
   text-align: center;
 }
+
+/****************Animations******************/
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+} 
 
 /**************MEDIA QUERIES**********************/
 @media screen and (min-width: 37.5em){
