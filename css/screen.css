@@ -209,6 +209,12 @@ li a:hover {
     color: yellow;
 }
 
+/*********************/
+
+#admintools input[type="submit"] {
+	margin-top: .5em;
+}
+
 /***************For Signup Page*****************************/
 p{
   color:black;
