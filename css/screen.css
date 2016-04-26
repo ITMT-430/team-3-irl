@@ -163,7 +163,7 @@ img {
 	margin-bottom: 1em;
 }
 
-.login input[type="button"]{
+input[type="button"], input[type="submit"]{
  margin: 1em auto;
 	color: white;
 	background: linear-gradient(to bottom, rgba(146,206,161,.8) 0%,rgba(80,220,108,.5) 50%,rgba(52,220,85,.5) 51%,rgba(98,240,129,.4) 100%);
