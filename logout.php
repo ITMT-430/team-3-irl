@@ -18,6 +18,9 @@
 			
 		<?php
    include 'connect.php';
+			include 'login.php';
+			
+			
 			$now = (time()/60);
 			$sql = "UPDATE user_table SET
 								available='$now',
@@ -32,7 +35,8 @@
 				}
 			
 				$mysqli->close();
-	
+				
+				phpCAS::logout();
 		?>
    
   </body>
