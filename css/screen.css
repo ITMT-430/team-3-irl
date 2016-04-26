@@ -105,7 +105,6 @@ img {
 .user-entry .time {
   margin-bottom: 1.5em;
   color: lightgray;
-		animation: fadein ease-in 1s;
 }
 
 .user-entry .activity {
