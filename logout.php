@@ -24,7 +24,7 @@
 			
 			$now = (time()/60);
 			$sql = "UPDATE user_table SET
-								available='$now',
+								available='$now'
 								WHERE username='$username'
 								";
 
