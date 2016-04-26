@@ -12,12 +12,10 @@
   include "connect.php";
 		?>
 
-  <div class="login">
+  <div id="appwrapper">
 			<div class="header">
-				<p class="iit">Illinois Tech</p>
-				iRL
-				<p class="iit">Please signup!</p>
-			</div>
+    <img src="images/logo.png" />
+ 	 </div>
 			
 		<form method="post">
 		<label for="firstname">First Name</label>
