@@ -71,6 +71,10 @@ a  {
   text-decoration: none;
 }
 
+fieldset {
+	border: 1px solid ghostwhite;
+}
+
 #appwrapper {
   margin: 0em auto;
   background-color: rgba(10,10,10, .5);
@@ -80,6 +84,11 @@ a  {
   padding: 1.5em 0em;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
+}
+
+.citybackground{
+	background: url("../images/city-skyline.jpg") no-repeat center center fixed;
+	background-size: cover;
 }
 
 img {
@@ -113,7 +122,7 @@ img {
 }
 
 .contactinfo {
-  background-color: rgba(10,200,10, .5);
+  background-color: rgba(76,147,230,.8);
   padding: 1em;
   display: block;
   margin: 0em 0em .5em 0em;
@@ -129,22 +138,12 @@ img {
 }
 
 /************************************FOR LOGIN PAGE*******************************/
-.citybackground{
-	background: url("../images/city-skyline.jpg") no-repeat center center fixed;
-	background-size: cover;
-}
-
 .header{
     text-align: center;
     max-width: 10em;
 	margin: 0 auto;
 	color: white;
 	font-size: 5em;
-}
-
-.header .iit {
-	font-size: .5em;
-	color: red;
 }
 
 .login{
@@ -164,7 +163,7 @@ img {
 }
 
 input[type="button"], input[type="submit"]{
- margin: 1em auto;
+ margin: 2em auto;
 	color: white;
 	background: linear-gradient(to bottom, rgba(146,206,161,.8) 0%,rgba(80,220,108,.5) 50%,rgba(52,220,85,.5) 51%,rgba(98,240,129,.4) 100%);
 	padding: 1em 5em;
@@ -191,7 +190,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: linear-gradient(to bottom, rgba(141,182,201,1) 0%, rgba(96,134,195,0.89) 50%, rgba(78,118,193,0.89) 51%, rgba(73,119,193,0.78) 100%);
+    background: linear-gradient(to bottom, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%);
     text-align: right;
     text-decoration: none;
 }
@@ -241,4 +240,5 @@ p{
     margin: .5em 0 0em 0;
     border: 1px solid ghostwhite;
   }
+	
 }
