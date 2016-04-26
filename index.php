@@ -41,6 +41,5 @@
 		</div>    
     <a href="http://gph.is/26m6Sdh" target="_blank"><img src="images/googleplus.png" alt="" width="10" height="13" /></a>
    
-  
   </body>
 </html>
