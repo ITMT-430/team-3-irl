@@ -14,6 +14,7 @@
   phpCAS::forceAuthentication();
   //validatetoken();
   //$username="scarpen3";
+  $username= phpCAS::getUser();
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
