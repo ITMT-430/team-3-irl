@@ -14,7 +14,11 @@
     <img src="images/logo.png" />
  	 </div>
 			
-			<h1>See you soon!</h1>
+		<h1>See you soon!</h1>
+		<form action="logout.php" method="post">
+		<h2>Are you sure you want to logout out of ALL IIT Websites?</h2>
+		      <input type="submit" value="Logout" name="submit">
+		</form>
 			
 		<?php
     include 'connect.php';
@@ -38,8 +42,9 @@
 		}
 			
 		$mysqli->close();
-   
-   	// If it's desired to kill the session, also delete the session cookie.
+<?php
+if (isset($_POST['submit'])){
+	// If it's desired to kill the session, also delete the session cookie.
 	// Note: This will destroy the session, and not just the session data!
 	if (ini_get("session.use_cookies")) {
 	    $params = session_get_cookie_params();
@@ -47,12 +52,6 @@
 	}
 	// Finally, destroy the session.
 	session_destroy();?>
-<form action="logout.php" method="post">
-<h3>Are you sure you want to logout out of ALL IIT Websites?</h3>
-      <input type="submit" value="Logout" name="submit">
-</form>
-<?php
-if (isset($_POST['submit'])){
 	phpCAS::logout();
 }
 ?>
