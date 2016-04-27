@@ -13,20 +13,15 @@
 			<div class="header">
     <img src="images/logo.png" />
  	 </div>
-			
-		<h1>See you soon!</h1>
 		<form action="logout.php" method="post">
-		<h2>Are you sure you want to logout out of ALL IIT Websites?</h2>
+		<h1>Are you sure you want to logout out of all IIT Website?</h1>
 		      <input type="submit" value="Logout" name="submit">
 		</form>
 			
 		<?php
-    include 'connect.php';
+if (isset($_POST['submit'])){
+	include 'connect.php';
 	include 'login.php';
-	
-	// Load the CAS lib
-	require_once '../includes/CAS.php';
-		
 			
 		$now = (time()/60);
 		$sql = "UPDATE user_table SET
@@ -42,8 +37,7 @@
 		}
 			
 		$mysqli->close();
-<?php
-if (isset($_POST['submit'])){
+
 	// If it's desired to kill the session, also delete the session cookie.
 	// Note: This will destroy the session, and not just the session data!
 	if (ini_get("session.use_cookies")) {
@@ -51,7 +45,7 @@ if (isset($_POST['submit'])){
 	    setcookie(session_name(), '', time() - 42000);
 	}
 	// Finally, destroy the session.
-	session_destroy();?>
+	session_destroy();
 	phpCAS::logout();
 }
 ?>
