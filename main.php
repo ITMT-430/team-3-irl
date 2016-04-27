@@ -10,7 +10,7 @@
 
 <body class="citybackground">
 <?php
-  include 'login.php';
+  require 'login.php';
   //validatetoken();
   //$username="scarpen3";
   include 'nav.php';
