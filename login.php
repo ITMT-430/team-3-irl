@@ -47,7 +47,7 @@ include 'function.php';
 
 // for this test, simply print that the authentication was successfull
 //generatetoken();*/
-//$username= phpCAS::getUser();
+$username= phpCAS::getUser();
 ?>
 <!--<html>
   <head>
