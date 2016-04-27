@@ -48,15 +48,13 @@
 	// Finally, destroy the session.
 	session_destroy();?>
 <form action="logout.php" method="post">
-<h2>Are you sure you want to logout out of ALL CAS Enviroment?</h2>
-      <input type="submit" value="Logout" name="submitbutton">
+<h3>Are you sure you want to logout out of ALL IIT Websites?</h3>
+      <input type="submit" value="Logout" name="submit">
 </form>
 <?php
-if (isset($_POST['submitbutton'])){
-
+if (isset($_POST['submit'])){
 	phpCAS::logout();
-
-	}
+}
 ?>
 			
  </body>
