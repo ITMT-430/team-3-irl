@@ -10,11 +10,11 @@
 
 <body class="citybackground">
 <?php
-  require 'login.php';
+  include 'login.php';
   phpCAS::forceAuthentication();
   //validatetoken();
   //$username="scarpen3";
-  $username= phpCAS::getUser();
+  $username = phpCAS::getUser();
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
