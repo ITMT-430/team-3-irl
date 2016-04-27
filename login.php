@@ -32,9 +32,9 @@ include 'function.php';
 
 if ( is_session_started() === FALSE ) session_start();
 */
-session_start();
+//session_start();
 // Unset all of the session variables.
-$_SESSION = array();
+//$_SESSION = array();
 
 
 /*if((isset($_COOKIE["rltoken"]))) { 
