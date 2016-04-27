@@ -11,7 +11,7 @@
 <body class="citybackground">
 <?php
   include 'login.php';
-  phpCAS::forceAuthentication();
+  //phpCAS::forceAuthentication();
   //validatetoken();
   //$username="scarpen3";
   //$username = phpCAS::getUser();

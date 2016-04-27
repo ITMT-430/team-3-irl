@@ -15,7 +15,7 @@ include 'function.php';
 	phpCAS::setCasServerCACert($cas_server_ca_cert_path);
 
 	// force CAS authentication
-    //phpCAS::forceAuthentication();
+    phpCAS::forceAuthentication();
 
 /*if((isset($_COOKIE["rltoken"]))) { 
 	if (validatetoken() == "false") {
