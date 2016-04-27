@@ -51,6 +51,19 @@
     
 <div id="peopleholder"></div>
 
+<script>
+	$(document).ready(function(){
+	$("#availability").change(function(){
+			if($("#availability").val() > 120){
+			alert("Invalid Input!");
+		};
+	
+		})
+	
+	})
+</script>
+
+
 <?php
 if (isset($_POST['submitbutton'])){
 
@@ -59,10 +72,14 @@ if (isset($_POST['submitbutton'])){
 // UPDATE DATABASE WHEN BUTTON IS PUSHED
 //
 //**********************************************
-  
+ 	$valid=true; 
+	
   //TO-DO: ESCAPE SINGLE QUOTE IN MESSAGE, THEY MESS UP THE DATABASE UPDATE
   $availablefor = $_POST['availablefor'];
-
+		if ($availablefor > 120 || $availablefor < 0)	{
+			$valid = false;
+		}
+	
   //find the time when available should expire
   date_default_timezone_set('CST6CDT');
   
@@ -83,13 +100,14 @@ if (isset($_POST['submitbutton'])){
       activity='$activity'
       WHERE username='$username'
       ";
-
-  $result = $mysqli->query($sql);
+if ($valid) {
+	  $result = $mysqli->query($sql);
 
 
   if ($mysqli->error) {
       echo $mysqli->error;
   }
+}
 
 }
   
