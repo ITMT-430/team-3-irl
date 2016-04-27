@@ -10,20 +10,20 @@
 
 <body class="citybackground">
 <?php
-  include 'login.php';
+  //include 'login.php';
   //phpCAS::forceAuthentication();
   //validatetoken();
-  //$username="scarpen3";
+  $username="scarpen3";
   //$username = phpCAS::getUser();
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
   $num= $result->num_rows;
-  if($num == '0'){
+  /*if($num == '0'){
       header("Location: signup.php");
   } else {
-  }
+  }*/
 ?>
 
 <div id="appwrapper">
@@ -79,7 +79,7 @@ if (isset($_POST['submitbutton'])){
 		if ($availablefor > 120 || $availablefor < 0)	{
 			$valid = false;
 		}
-	
+		echo $valid;
   //find the time when available should expire
   date_default_timezone_set('CST6CDT');
   
@@ -100,7 +100,8 @@ if (isset($_POST['submitbutton'])){
       activity='$activity'
       WHERE username='$username'
       ";
-if ($valid) {
+	
+	if ($valid) {
 	  $result = $mysqli->query($sql);
 
 
