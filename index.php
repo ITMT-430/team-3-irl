@@ -26,7 +26,7 @@
 
     if ($result->num_rows > 0){
     	//output the data
-    		printf("<h2>There are %d people free iRL</h2>", $num);
+    		printf("<h2>There are %d people free on iRL</h2>", $num);
     }
 
   $mysqli->close();

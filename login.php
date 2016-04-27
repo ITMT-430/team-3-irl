@@ -1,5 +1,5 @@
 <?php
-include 'function.php';
+	include 'function.php';
 
 		// Load the settings from the central config file
 	require_once '../includes/CAS/config.php';
@@ -17,24 +17,31 @@ include 'function.php';
 	// force CAS authentication
     phpCAS::forceAuthentication();
 
-//Function to check if the session has stated or not.    
-function is_session_started()
-{
-    if ( php_sapi_name() !== 'cli' ) {
-        if ( version_compare(phpversion(), '5.5.9', '>=') ) {
-            return session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
-        } else {
-            return session_id() === '' ? FALSE : TRUE;
-        }
-    }
-    return FALSE;
-}
+	//Function to check if the session has stated or not.    
+	function is_session_started()
+	{
+	    if ( php_sapi_name() !== 'cli' ) {
+	        if ( version_compare(phpversion(), '5.5.9', '>=') ) {
+	            return session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
+	        } else {
+	            return session_id() === '' ? FALSE : TRUE;
+	        }
+	    }
+	    return FALSE;
+	}
 
-//If not started then create a new session
-if ( is_session_started() === FALSE ){ 
-	session_start();
-}
+	//If not started then create a new session
+	if ( is_session_started() === FALSE ){ 
+		session_start();
+	}
 
+	$username= phpCAS::getUser();
+
+/********************************************
+*
+*	Sample code for Authintication.
+*
+*********************************************/
 //session_start();
 // Unset all of the session variables.
 //$_SESSION = array();
@@ -70,8 +77,7 @@ if ( is_session_started() === FALSE ){
 
 // for this test, simply print that the authentication was successfull
 //generatetoken();*/
-$username= phpCAS::getUser();
-?>
+	?>
 <!--<html>
   <head>
     <title>phpCAS simple client</title>

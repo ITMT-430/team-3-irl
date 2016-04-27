@@ -23,7 +23,11 @@
 			
 <?php
 	if (isset($_POST['submit'])){
-			
+		/****************************
+		* When entered, user goes invisiable
+		* Clear cookie and session and
+		* then CAS Logout
+		****************************/	
 		$now = (time()/60);
 		$sql = "UPDATE user_table SET
 				available='$now'
