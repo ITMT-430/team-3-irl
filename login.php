@@ -17,7 +17,7 @@ include 'function.php';
 	// force CAS authentication
     phpCAS::forceAuthentication();
     
-function is_session_started()
+/*function is_session_started()
 {
     if ( php_sapi_name() !== 'cli' ) {
         if ( version_compare(phpversion(), '5.4.0', '>=') ) {
@@ -31,7 +31,8 @@ function is_session_started()
 
 
 if ( is_session_started() === FALSE ) session_start();
-
+*/
+session_start();
 // Unset all of the session variables.
 $_SESSION = array();
 
