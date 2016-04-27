@@ -16,6 +16,13 @@ include 'function.php';
 
 	// force CAS authentication
     phpCAS::forceAuthentication();
+	
+	// Initialize the session.
+	session_start();
+
+	// Unset all of the session variables.
+	$_SESSION = array();
+
 
 /*if((isset($_COOKIE["rltoken"]))) { 
 	if (validatetoken() == "false") {
