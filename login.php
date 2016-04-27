@@ -16,7 +16,8 @@ include 'function.php';
 
 	// force CAS authentication
     phpCAS::forceAuthentication();
-    
+
+//Function to check if the session has stated or not.    
 function is_session_started()
 {
     if ( php_sapi_name() !== 'cli' ) {
@@ -29,10 +30,9 @@ function is_session_started()
     return FALSE;
 }
 
-
+//If not started then create a new session
 if ( is_session_started() === FALSE ){ 
 	session_start();
-	$_SESSION = array();
 }
 
 //session_start();
