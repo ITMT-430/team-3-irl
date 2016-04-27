@@ -65,6 +65,7 @@
 
 
 <?php
+echo "PHP RUNNING";
 if (isset($_POST['submitbutton'])){
 
 //**********************************************
@@ -79,7 +80,7 @@ if (isset($_POST['submitbutton'])){
 		if ($availablefor > 120 || $availablefor < 0)	{
 			$valid = false;
 		}
-		echo $valid;
+		echo "THIS IS THE VALUE: " . $valid;
   //find the time when available should expire
   date_default_timezone_set('CST6CDT');
   
