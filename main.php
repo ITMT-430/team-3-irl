@@ -11,6 +11,7 @@
 <body class="citybackground">
 <?php
   require 'login.php';
+  phpCAS::forceAuthentication();
   //validatetoken();
   //$username="scarpen3";
   include 'nav.php';
