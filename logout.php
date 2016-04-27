@@ -6,7 +6,10 @@
     <link rel="stylesheet" type="text/css" href="css/screen.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, scale-to-fit=no">
   </head>
-
+<?php
+	include 'login.php';
+	include 'connect.php';
+	?>
   <body class="citybackground">
 		
 		<div class="login">
@@ -18,10 +21,8 @@
 		      <input type="submit" value="Logout" name="submit">
 		</form>
 			
-		<?php
-if (isset($_POST['submit'])){
-	include 'connect.php';
-	include 'login.php';
+<?php
+	if (isset($_POST['submit'])){
 			
 		$now = (time()/60);
 		$sql = "UPDATE user_table SET
