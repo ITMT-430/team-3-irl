@@ -10,11 +10,9 @@
 
 <body class="citybackground">
 <?php
+  //Call login.php to test out the authintizcation.
   include 'login.php';
-  //phpCAS::forceAuthentication();
-  //validatetoken();
   //$username="scarpen3";
-  //$username = phpCAS::getUser();
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
@@ -65,7 +63,6 @@
 
 
 <?php
-echo "PHP RUNNING";
 if (isset($_POST['submitbutton'])){
 
 //**********************************************
@@ -80,7 +77,6 @@ if (isset($_POST['submitbutton'])){
 		if ($availablefor > 120 || $availablefor < 0)	{
 			$valid = false;
 		}
-		echo "THIS IS THE VALUE: " . $valid;
   //find the time when available should expire
   date_default_timezone_set('CST6CDT');
   

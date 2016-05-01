@@ -6,24 +6,28 @@
     <link rel="stylesheet" type="text/css" href="css/screen.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, scale-to-fit=no">
   </head>
-
+<?php
+	include 'login.php';
+	include 'connect.php';
+	?>
   <body class="citybackground">
 		
 		<div class="login">
 			<div class="header">
     <img src="images/logo.png" />
  	 </div>
+		<form action="logout.php" method="post">
+		<h1>Are you sure you want to logout out of all IIT Website?</h1>
+		      <input type="submit" value="Logout" name="submit">
+		</form>
 			
-			<h1>See you soon!</h1>
-			
-		<?php
-    include 'connect.php';
-	include 'login.php';
-	
-	// Load the CAS lib
-	require_once '../includes/CAS.php';
-		
-			
+<?php
+	if (isset($_POST['submit'])){
+		/****************************
+		* When entered, user goes invisiable
+		* Clear cookie and session and
+		* then CAS Logout
+		****************************/	
 		$now = (time()/60);
 		$sql = "UPDATE user_table SET
 				available='$now'
@@ -38,25 +42,27 @@
 		}
 			
 		$mysqli->close();
-   
-   	// If it's desired to kill the session, also delete the session cookie.
-	// Note: This will destroy the session, and not just the session data!
-	if (ini_get("session.use_cookies")) {
-	    $params = session_get_cookie_params();
-	    setcookie(session_name(), '', time() - 42000);
-	}
-	// Finally, destroy the session.
-	session_destroy();?>
-<form action="logout.php" method="post">
-<h2>Are you sure you want to logout out of ALL CAS Enviroment?</h2>
-      <input type="submit" value="Logout" name="submitbutton">
-</form>
-<?php
-if (isset($_POST['submitbutton'])){
 
-	phpCAS::logout();
+		//Unsets Session
+		$_SESSION = array();
 
+		//Deletes all cookies before loging user out.
+	if (isset($_SERVER['HTTP_COOKIE'])) {
+	    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+	    foreach($cookies as $cookie) {
+	        $parts = explode('=', $cookie);
+	        $name = trim($parts[0]);
+	        setcookie($name, '', time()-1000);
+	        setcookie($name, '', time()-1000, '/');
+	    }
 	}
+		// Finally, destroy the session.
+		session_destroy();
+
+		//Log's user out of CAS.
+		phpCAS::logout();
+	}
+
 ?>
 			
  </body>
