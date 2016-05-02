@@ -48,6 +48,14 @@ table {
 }
 
 /*********************************OUR CUSTOM CSS STYLES***********************************/
+
+/*TYPOGRAPHIC SCALE
+3.052em
+1.953em
+1.563em
+1.25em
+*/
+
 body {
   font-family: sans-serif;
   background-color: black;
@@ -56,15 +64,22 @@ body {
 h1 {
     color: ghostwhite;
     text-align: center;
-    font-size: 3em;
+    font-size: 3.052em;
     margin: 1em 0 .4em 0;
 }
 
 h2 {
     color: ghostwhite;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.953em;
     margin-top: 1em;
+}
+
+h3 {
+  color: ghostwhite;
+  text-align: center;
+  font-size: 1.563em;
+  margin-top: 1em;
 }
 
 a  {
@@ -111,12 +126,12 @@ img {
 }
 
 .user-entry .user-name {
-  font-size: 1.5em;
+  font-size: 1.563em;
   margin-bottom: .5em;
 }
 
 .user-entry .time {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.563emem;
   color: lightgray;
 }
 
@@ -167,7 +182,7 @@ input[type="button"], input[type="submit"]{
 }
 
 label {
-	font-size: 1.2em;
+	font-size: 1.25em;
 	display: block;
 	margin-top: 1em;
 	color: white;
@@ -182,31 +197,30 @@ input, select{
 
 /*****************FOR NAV BAR**************************/
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: linear-gradient(to bottom, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%);
-    text-align: right;
-    text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%);
+  text-align: right;
+  text-decoration: none;
 }
 
 li {
-    display: inline-block;
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-		font-weight: bold;
-
+  display: inline-block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 li a {
-	color: white;
-	text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 li a:hover {
-    color: yellow;
+  color: yellow;
 }
 
 /*********************/
