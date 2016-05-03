@@ -153,7 +153,7 @@ img {
 }
 
 .isHidden {
-	display: hidden;
+	display: none;
 }
 
 /************************************FOR LOGIN PAGE*******************************/
