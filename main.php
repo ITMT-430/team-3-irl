@@ -55,7 +55,7 @@
 	$("#availability").change(function(){
 			if($("#availability").val() > 120){
 			alert("Please enter a number between 0 and 120.");
-      return false;
+      $('#availability').val("0");
 		};
 	
 		})
