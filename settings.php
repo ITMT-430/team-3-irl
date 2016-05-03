@@ -153,23 +153,23 @@
 
   }         
           if (isset($_POST['userdeletesubmitbutton'])){
-          $userdeleteselected = $_POST['userdeleteselect'];
+            $userdeleteselected = $_POST['userdeleteselect'];
           
-                        $sql = "DELETE FROM user_Table
-                        WHERE username = '$userdeleteselected'";
+            $sql = "DELETE FROM user_table
+            WHERE username = '$userdeleteselected'";
 
-                        $result = $mysqli->query($sql);
+            $result = $mysqli->query($sql);
 
-                        if ($mysqli->error) {
-                            echo $mysqli->error;
-                            $message="Unable to update!";         
-                            echo "<script type='text/javascript'>alert('$message');</script>";
-                        } else {
-                            $message="Update Succesful!";
-                            echo "<script type='text/javascript'>alert('$message');</script>";
-                            header("Refresh:0; url=settings.php");
-                        }
+            if ($mysqli->error) {
+                echo $mysqli->error;
+                $message="Unable to update!";         
+                echo "<script type='text/javascript'>alert('$message');</script>";
+            } else {
+                $message="Update Succesful!";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                header("Refresh:0; url=settings.php");
             }
+          }
 
           if (isset($_POST['adminsubmitbutton'])){
 											
