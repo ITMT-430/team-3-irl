@@ -28,7 +28,7 @@
    <div class="header">
     <img src="images/logo.png" />
  	 </div>
-   <div id="jswarn" class="jshide"><h2>Warning!</h2><p>It appears that you do not have JavaScript working.  This site will not work right without JavaScript.</p></div>
+   <div id="jswarn" class="jshide"><h2>Warning!</h2><h3>It appears that you do not have JavaScript working.  This site will not work right without JavaScript.</h3></div>
     <form action="main.php" method="post">
     	<fieldset>
     	<legend></legend>
