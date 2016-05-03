@@ -115,6 +115,9 @@ img {
 }
 
 /*********LIST OF PEOPLE AVAILABLE******/
+  #jswarn {
+  color:white;
+}
 
 .user-entry {
   font-family: sans-serif;
@@ -257,8 +260,4 @@ p{
     border: 1px solid ghostwhite;
   }
 	
-}
-/*********Warning on main.php*********/
-.jswarn {
-  color:white;
 }
