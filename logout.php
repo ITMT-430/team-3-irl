@@ -10,6 +10,13 @@
 	include 'login.php';
 	include 'connect.php';
 	include 'nav.php';
+	$sql = "SELECT * FROM user_table WHERE username='$username'";
+  $result = $mysqli->query($sql);
+  $num = $result->num_rows;
+  if($num == '0'){
+      header("Location: signup.php");
+  } else {
+  }
 	?>
   <body class="citybackground">
 		

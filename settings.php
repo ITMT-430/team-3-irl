@@ -12,11 +12,15 @@
     include "login.php";
     //$username="scarpen3";
     include "connect.php";
-    //include "nav.php";
-
-    $sql = "SELECT * FROM user_table WHERE username='$username'";
-    $result = $mysqli->query($sql);
-    $row = $result->fetch_assoc();
+    include "nav.php";
+  $sql = "SELECT * FROM user_table WHERE username='$username'";
+  $result = $mysqli->query($sql);
+  $row = $result->fetch_assoc();
+  $num = $result->num_rows;
+  if($num == '0'){
+      header("Location: signup.php");
+  } else {
+  }
   ?>
 
 <div id="appwrapper">
@@ -183,7 +187,7 @@
             $resettimeselected = $_POST['resettimeselect'];
                     $stmt = $mysqli->prepare("UPDATE user_table SET
                                       available= " . (time()/60). 
-                                      "WHERE username='?'");
+                                      "WHERE username=?");
                   $stmt->bind_param("s", $resettimeselected);
                   $stmt->execute();
 
@@ -215,15 +219,15 @@
           $twitter = $_POST['twitter'];
           $email = $_POST['email'];
           $stmt = $mysqli->prepare("UPDATE user_table SET
-                            name='?',
-                            phone='?',
-                            facebook='?',
-                            twitter='?',
-                            email='?'
-                            WHERE username='?'");
+                            name=?,
+                            phone=?,
+                            facebook=?,
+                            twitter=?,
+                            email=?
+                            WHERE username=?");
             $stmt->bind_param("ssssss", $username, $phone, $facebook, $twitter, $email, $username);
             $stmt->execute(); 
-                      $result = $mysqli->query($sql);
+            $result = $mysqli->query($sql);
 
             if ($mysqli->error) {
                 echo $mysqli->error;

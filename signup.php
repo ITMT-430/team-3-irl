@@ -10,6 +10,7 @@
   <?php 
   include "login.php";
   include "connect.php";
+  //$username="scarpen3";
 		?>
 
   <div id="appwrapper">
@@ -36,6 +37,7 @@
 		</div> 
 		<?php
 		if (isset($_POST['submitbutton'])){
+
 			$firstname = $_POST['firstname'];
 			$lastname = $_POST['lastname'];
   			$phone = $_POST['phone'];
@@ -44,10 +46,13 @@
   			$email = $_POST['email'];
   			$name=$firstname." ".$lastname;
 
-  			$stmt = $mysqli->prepare("INSERT INTO user_table (`username`, `name`, `phone`, `facebook`, `email`, `twitter`) 
-  				VALUES ('?','?','?','?','?','?')");
+  			$stmt = $mysqli->prepare("INSERT INTO user_table (username, name, phone, facebook, email, twitter) 
+  				VALUES (?,?,?,?,?,?)");
 			$stmt->bind_param("ssssss", $username, $name, $phone, $facebook, $email, $twitter);
 			$stmt->execute();
+
+			echo $stmt->error;
+			echo $stmt->errno;
 
 			  if ($mysqli->error) {
 			      echo $mysqli->error;
@@ -55,8 +60,8 @@
 			      echo "<script type='text/javascript'>alert('$message');</script>";
 			  } else {
 			  	$message="Update Succesful!";
-			  	header("Refresh:0; url=main.php");
 			  	echo "<script type='text/javascript'>alert('$message');</script>";
+			  	header("Refresh:0; url=main.php");
 
 			  }
 			$mysqli->close();
