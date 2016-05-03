@@ -9,10 +9,10 @@
   <body class="citybackground">
   <?php 
 
-    include "login.php";
-    //$username="scarpen3";
+    //include "login.php";
+    $username="scarpen3";
     include "connect.php";
-    include "nav.php";
+    //include "nav.php";
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
   $num = $result->num_rows;
@@ -123,9 +123,6 @@
   if (isset($_POST['sqlsubmitbutton'])){
 
   $file="irl.sql";
-  if (file_exists($file)){
-  exec( "rm -r $file ");  
-  }
   exec( "mysqldump -u $dbusername --password=$dbpassword irl > $file");
   
   if (file_exists($file))
@@ -140,16 +137,9 @@
     ob_clean();
     flush();
     readfile($file);
-    exec( "rm -r $file ");
+    exec( "> $file");");
     exit;
     }
-
-/*
-    $filename = "backup-" . date("d-m-Y") . ".sql";
-    header( 'Content-Disposition: attachment; filename="' . $filename . '"' );
-    $cmd = "mysqldump -u $dbusername --password=$dbpassword irl";   
-
-    passthru( $cmd );*/
 
   }         
           if (isset($_POST['userdeletesubmitbutton'])){
