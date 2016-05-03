@@ -44,9 +44,10 @@
   			$email = $_POST['email'];
   			$name=$firstname." ".$lastname;
 
-  			$sql = "INSERT INTO user_table (`username`, `name`, `phone`, `facebook`, `email`, `twitter`) VALUES ('$username','$name','$phone','$facebook','$email','$twitter')";
-
-		      $result = $mysqli->query($sql);
+  			$stmt = $mysqli->prepare("INSERT INTO user_table (`username`, `name`, `phone`, `facebook`, `email`, `twitter`) 
+  				VALUES ('?','?','?','?','?','?')");
+			$stmt->bind_param("ssssss", $username, $name, $phone, $facebook, $email, $twitter);
+			$stmt->execute();
 
 			  if ($mysqli->error) {
 			      echo $mysqli->error;

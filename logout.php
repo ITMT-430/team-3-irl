@@ -9,6 +9,7 @@
 <?php
 	include 'login.php';
 	include 'connect.php';
+	include 'nav.php';
 	?>
   <body class="citybackground">
 		
@@ -29,12 +30,11 @@
 		* then CAS Logout
 		****************************/	
 		$now = (time()/60);
-		$sql = "UPDATE user_table SET
-				available='$now'
-				WHERE username='$username'
-				";
-
-		$result = $mysqli->query($sql);
+		$stmt = $mysqli->prepare("UPDATE user_table SET
+				available='?'
+				WHERE username='?'");
+		$stmt->bind_param("ss", $now, $username);
+		$stmt->execute();
 
 
 		if ($mysqli->error) {

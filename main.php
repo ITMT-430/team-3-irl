@@ -15,9 +15,9 @@
   //$username="scarpen3";
   include 'nav.php';
   include 'connect.php';
-  $sql = "SELECT * FROM user_table WHERE username='$username'";
-  $result = $mysqli->query($sql);
-  $num= $result->num_rows;
+  $stmt = $mysqli->prepare("SELECT * FROM user_table WHERE username='?'");
+  $stmt->bind_param("s", $username);
+  $stmt->execute();
   if($num == '0'){
       header("Location: signup.php");
   } else {
@@ -91,14 +91,14 @@ if (isset($_POST['submitbutton'])){
   //Take in activity that user wants
   $activity =  $_POST['activity'];
   
+ $stmt = $mysqli->prepare("UPDATE user_table SET
+      available=?,
+      activity=?
+      WHERE username=?");
+  $stmt->bind_param("dss", $expiration, $activity, $username);
+  $stmt->execute();
 
-  $sql = "UPDATE user_table SET
-      available='$expiration',
-      activity='$activity'
-      WHERE username='$username'
-      ";
-	
-	if ($valid) {
+if ($valid) {
 	  $result = $mysqli->query($sql);
 
 

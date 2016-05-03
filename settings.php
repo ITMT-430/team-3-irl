@@ -12,7 +12,7 @@
     include "login.php";
     //$username="scarpen3";
     include "connect.php";
-    include "nav.php";
+    //include "nav.php";
 
     $sql = "SELECT * FROM user_table WHERE username='$username'";
     $result = $mysqli->query($sql);
@@ -39,7 +39,7 @@
         
         <?php
         
-								$sql = "SELECT * FROM admins WHERE username='$username'";
+				$sql = "SELECT * FROM admins WHERE username='$username'";
         $result = $mysqli->query($sql);
         $num = $result->num_rows;
                
@@ -50,8 +50,7 @@
 										//user is an admin
 									
 										echo "<div id='admintools'><h1>Administrator Tools</h1>";
-									
-										//***********Make users into admins
+									//***********Make users into admins
 										$sql = "SELECT username FROM user_table";
           $result = $mysqli->query($sql);
 									
@@ -92,10 +91,47 @@
           
           echo "<input type='submit' value='Set time to Zero' name='resettimesubmitbutton'>";
 										echo "</form></div>";
+          // SQL DUMP
+          echo "<form method='post'>";
+          echo "<input type='submit' value='DUMP DATA' name='sqlsubmitbutton'>";
+
+            echo "</form>";
         }		
 															
          
-  //submit button actions          
+  //submit button actions 
+  if (isset($_POST['sqlsubmitbutton'])){
+
+  $file="irl.sql";
+  if (file_exists($file)){
+  exec( "rm -r $file ");  
+  }
+  exec( "mysqldump -u $dbusername --password=$dbpassword irl > $file");
+  
+  if (file_exists($file))
+    {
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename='.basename($file));
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($file));
+    ob_clean();
+    flush();
+    readfile($file);
+    exec( "rm -r $file ");
+    exit;
+    }
+
+/*
+    $filename = "backup-" . date("d-m-Y") . ".sql";
+    header( 'Content-Disposition: attachment; filename="' . $filename . '"' );
+    $cmd = "mysqldump -u $dbusername --password=$dbpassword irl";   
+
+    passthru( $cmd );*/
+
+  }         
           if (isset($_POST['adminsubmitbutton'])){
 											
             	$adminselected = $_POST['adminselect'];
@@ -145,11 +181,11 @@
 										
 											if (isset($_POST['resettimesubmitbutton'])){
             $resettimeselected = $_POST['resettimeselect'];
-          
-													$sql = "UPDATE user_table SET
-																			available= " . (time()/60). 
-																			"WHERE username='$resettimeselected'";
-																			
+                    $stmt = $mysqli->prepare("UPDATE user_table SET
+                                      available= " . (time()/60). 
+                                      "WHERE username='?'");
+                  $stmt->bind_param("s", $resettimeselected);
+                  $stmt->execute();
 
 												$result = $mysqli->query($sql);
 
@@ -178,17 +214,16 @@
           $facebook = $_POST['facebook'];
           $twitter = $_POST['twitter'];
           $email = $_POST['email'];
-
-          $sql = "UPDATE user_table SET
-                  name='$name',
-                  phone='$phone',
-                  facebook='$facebook',
-                  twitter='$twitter',
-                  email='$email'
-                  WHERE username='$username'
-          ";
-
-            $result = $mysqli->query($sql);
+          $stmt = $mysqli->prepare("UPDATE user_table SET
+                            name='?',
+                            phone='?',
+                            facebook='?',
+                            twitter='?',
+                            email='?'
+                            WHERE username='?'");
+            $stmt->bind_param("ssssss", $username, $phone, $facebook, $twitter, $email, $username);
+            $stmt->execute(); 
+                      $result = $mysqli->query($sql);
 
             if ($mysqli->error) {
                 echo $mysqli->error;
