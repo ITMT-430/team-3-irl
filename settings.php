@@ -15,12 +15,12 @@
     include "nav.php";
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
-  $row = $result->fetch_assoc();
   $num = $result->num_rows;
   if($num == '0'){
       header("Location: signup.php");
   } else {
   }
+   $row = $result->fetch_assoc();
   ?>
 
 <div id="appwrapper">
@@ -51,10 +51,26 @@
           //the logged in user isn't in the admin database
         } 
         else {
-										//user is an admin
+						//user is an admin
 									
-										echo "<div id='admintools'><h1>Administrator Tools</h1>";
-									//***********Make users into admins
+					echo "<div id='admintools'><h1>Administrator Tools</h1>";
+									 
+          //***********Delete users
+          $sql = "SELECT username FROM user_table";
+          $result = $mysqli->query($sql);
+                  
+                    echo "<form method='post'>";
+          echo "<select name='userdeleteselect'>";
+          
+          while($row = $result->fetch_assoc()) {
+            echo "<option>" . $row["username"] . "</option>";
+          }
+          
+          echo "<input type='submit' value='Delete User' name='userdeletesubmitbutton'>";
+                    echo "</form>";
+
+
+                  //***********Make users into admins
 										$sql = "SELECT username FROM user_table";
           $result = $mysqli->query($sql);
 									
@@ -136,6 +152,25 @@
     passthru( $cmd );*/
 
   }         
+          if (isset($_POST['userdeletesubmitbutton'])){
+          $userdeleteselected = $_POST['userdeleteselect'];
+          
+                        $sql = "DELETE FROM user_Table
+                        WHERE username = '$userdeleteselected'";
+
+                        $result = $mysqli->query($sql);
+
+                        if ($mysqli->error) {
+                            echo $mysqli->error;
+                            $message="Unable to update!";         
+                            echo "<script type='text/javascript'>alert('$message');</script>";
+                        } else {
+                            $message="Update Succesful!";
+                            echo "<script type='text/javascript'>alert('$message');</script>";
+                            header("Refresh:0; url=settings.php");
+                        }
+            }
+
           if (isset($_POST['adminsubmitbutton'])){
 											
             	$adminselected = $_POST['adminselect'];
@@ -184,12 +219,12 @@
 										}
 										
 											if (isset($_POST['resettimesubmitbutton'])){
-            $resettimeselected = $_POST['resettimeselect'];
-                    $stmt = $mysqli->prepare("UPDATE user_table SET
+                      $resettimeselected = $_POST['resettimeselect'];
+                      $stmt = $mysqli->prepare("UPDATE user_table SET
                                       available= " . (time()/60). 
-                                      "WHERE username=?");
-                  $stmt->bind_param("s", $resettimeselected);
-                  $stmt->execute();
+                                            "WHERE username=?");
+                        $stmt->bind_param("s", $resettimeselected);
+                        $stmt->execute();
 
 												$result = $mysqli->query($sql);
 
@@ -225,7 +260,7 @@
                             twitter=?,
                             email=?
                             WHERE username=?");
-            $stmt->bind_param("ssssss", $username, $phone, $facebook, $twitter, $email, $username);
+            $stmt->bind_param("ssssss", $name, $phone, $facebook, $twitter, $email, $username);
             $stmt->execute(); 
             $result = $mysqli->query($sql);
 
