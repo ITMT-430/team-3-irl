@@ -51,7 +51,7 @@
 
 <script>
 	$(document).ready(function(){
-    $( '.jshide' ).addClass('hidden').removeClass('jshide');
+    $( '.jshide' ).addClass('isHidden').removeClass('jshide');
 	$("#availability").change(function(){
 			if($("#availability").val() > 120){
 			alert("Invalid Input!");
