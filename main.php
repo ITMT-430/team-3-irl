@@ -54,7 +54,8 @@
     $( '.jshide' ).addClass('isHidden').removeClass('jshide');
 	$("#availability").change(function(){
 			if($("#availability").val() > 120){
-			alert("Invalid Input!");
+			alert("Please enter a number between 0 and 120.");
+      return false;
 		};
 	
 		})
