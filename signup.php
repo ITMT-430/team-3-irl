@@ -31,8 +31,16 @@
             <input id="twitter" type="text" name="twitter" placeholder="https://twitter.com/superdude">
             <label for="email">Email</label>
             <input id="email" type="text" name="email" placeholder="you@something.com">
-
-            <input type="submit" value="Create Account" name="submitbutton">
+<?php
+        $sql = "SELECT * FROM feature WHERE id='1'";
+        $result = $mysqli->query($sql);
+        $row = $result->fetch_assoc();
+        $up = $row['enabled'];
+        if ($up == 0) {?>
+      <input type="submit" value="Update Status" name="submitbutton">
+      <?php
+      }
+      ?>
 		</form>
 		</div> 
 		<?php

@@ -12,7 +12,7 @@
 <?php
   //Call login.php to test out the authintizcation.
   include 'login.php';
-  //$username="scarpen3";
+  //$username="jpatel74";
   include 'nav.php';
   include 'connect.php';
   $sql = "SELECT * FROM user_table WHERE username='$username'";
@@ -43,7 +43,16 @@
       
       <label>Minutes you're available (max 120)</label>
       <input id="availability" type="number" name="availablefor" step="5" min="0" max="120" value="0">
+      <?php
+        $sql = "SELECT * FROM feature WHERE id='1'";
+        $result = $mysqli->query($sql);
+        $row = $result->fetch_assoc();
+        $up = $row['enabled'];
+        if ($up == 0) {?>
       <input type="submit" value="Update Status" name="submitbutton">
+      <?php
+      }
+      ?>
       </fieldset>
     </form>
     

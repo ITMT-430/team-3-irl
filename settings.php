@@ -9,10 +9,10 @@
   <body class="citybackground">
   <?php 
 
-    //include "login.php";
-    $username="scarpen3";
+    include "login.php";
+    //$username="jpatel74";
     include "connect.php";
-    //include "nav.php";
+    include "nav.php";
   $sql = "SELECT * FROM user_table WHERE username='$username'";
   $result = $mysqli->query($sql);
   $num = $result->num_rows;
@@ -38,7 +38,16 @@
         <input id="twitter" type="text" name="twitter" value="<?php echo $row['twitter']?>">
         <label for="email">Email</label>
         <input id="email" type="text" name="email" value="<?php echo $row['email']?>">
-        <input type="submit" value="Save Settings" name="submitbutton">
+        <?php
+        $sql = "SELECT * FROM feature WHERE id='1'";
+        $result = $mysqli->query($sql);
+        $row = $result->fetch_assoc();
+        $up = $row['enabled'];
+        if ($up == 0) {?>
+      <input type="submit" value="Update Status" name="submitbutton">
+      <?php
+      }
+      ?>
 					</form> 
         
         <?php
@@ -111,14 +120,47 @@
           
           echo "<input type='submit' value='Set time to Zero' name='resettimesubmitbutton'>";
 										echo "</form></div>";
-          // SQL DUMP
+          //********************SQL DUMP
           echo "<form method='post'>";
-          echo "<input type='submit' value='DUMP DATA' name='sqlsubmitbutton'>";
+          echo "<input type='submit' value='DUMP DATABASE' name='sqlsubmitbutton'>";
 
             echo "</form>";
-        }		
-															
-         
+        //********************READ ONLY MODE
+        $sql = "SELECT * FROM feature WHERE id='1'";
+        $result = $mysqli->query($sql);
+        $row = $result->fetch_assoc();
+        $up = $row['enabled'];
+        if ($up == 0){
+
+          // SQL readonly
+          echo "<form method='post'>";
+          echo "<input type='submit' value='Make Read Only' name='readonly'>";
+            echo "</form>";
+            $enabled ="1";
+          }else {
+             echo "</form>";
+          // SQL not read only
+            echo "<form method='post'>";
+            echo "<input type='submit' value='Turn off Read Only' name='readonly'>";
+            echo "</form>";
+            $enabled ="0";
+          }
+        }
+	 if (isset($_POST['readonly'])){
+     $sql = "UPDATE feature SET enabled='$enabled' WHERE id=1";
+      $result = $mysqli->query($sql);
+
+            if ($mysqli->error) {
+                echo $mysqli->error;
+                $message="Unable to update!";         
+                echo "<script type='text/javascript'>alert('$message');</script>";
+            } else {
+                $message="Update Succesful!";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                header("Refresh:0; url=settings.php");
+            }
+   }														
+  
   //submit button actions 
   if (isset($_POST['sqlsubmitbutton'])){
 
@@ -137,7 +179,7 @@
     ob_clean();
     flush();
     readfile($file);
-    exec( "> $file");");
+    exec( " > $file");
     exit;
     }
 
